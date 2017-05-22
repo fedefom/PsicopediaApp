@@ -74,3 +74,9 @@ div > div > a:hover {
     text-align: center;
     vertical-align: central;
 }
+#imagenHome {
+    height: 20px !important;
+    width: 20px !important;
+    text-align: center;
+    vertical-align: central;
+}
