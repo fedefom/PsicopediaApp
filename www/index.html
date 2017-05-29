@@ -4,9 +4,12 @@
        
         <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">  
-        
+        <meta name="google-signin-client_id" content="248584404173-10svpq42vv5ugqaig09mlj7gtukua0es.apps.googleusercontent.com">
+
+        <script src="https://apis.google.com/js/platform.js" async defer></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
+        <script src="js/index.js"></script>
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
         <link rel="stylesheet" type="text/css" href="css/estilos.css">
@@ -14,7 +17,7 @@
         <title>Psicopedia</title>
     </head>
     <body>
-        <div>
+        <div id="logueos">
 
             <img class="imagenPrincipal"src="img/etci.JPG"/>
             <br />
@@ -25,8 +28,9 @@
             <button class="btn btn-info btn-reg" data-toggle="modal" data-target="#myModal">Ingresar sin Registrarse</button>
             
 
-            <button class="btn btn-primary btn-large btn-face">Facebook</button>
-            <button class="btn btn-danger btn-large btn-google">Google</button>
+            <center><button class="btn btn-primary btn-large btn-face">Facebook</button></center>
+            <center><div class="g-signin2" data-onsuccess="onSignIn"></div></center>
+            
         </div>
         <form action="welcome.html">
             <!-- Modal -->

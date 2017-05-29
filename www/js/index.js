@@ -27,4 +27,34 @@
     function onResume() {
         // TODO: esta aplicación se ha reactivado. Restaure el estado de la aplicación aquí.
     };
-} )();
+})();
+
+//Logueo con google
+function onSignIn(googleUser) {
+    var param = location.search.split("=");
+    //var articulo = param[1].replace("%20", "").replace("%20", " ");
+    if (param.length ==1) {
+
+        var profile = googleUser.getBasicProfile();
+        console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+        console.log('Name: ' + profile.getName());
+        console.log('Image URL: ' + profile.getImageUrl());
+        console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+        window.location.replace("welcome.html?google=true");
+    } else {
+        deslogueo = param[1].replace(/%20/g, " ");
+        if (deslogueo == "false") {
+            signOut();
+        }
+    }
+}
+//Deslogueo google
+function signOut() {
+    var auth2 = gapi.auth2.getAuthInstance();
+    auth2.signOut().then(function () {
+            console.log('User signed out.');
+    });
+    window.location.replace("index.html");
+}
+
+

@@ -1,4 +1,11 @@
 ﻿$(document).ready(function () {
+    var param = location.search.split("?");
+    //Si se logue con google se agrega el boton de deslogueo
+    if (param.length > 1) { 
+        if (param[1].indexOf("google=true") != -1) {
+            $("#toolBar").append("<a href=\"index.html?logueo=false\">Sign Out</a>");
+        }
+    }
     //busqueda y carga de las secciones del menu desplegable del archivo Secciones.txt 
     var metodo = 'files/download';
     var datos = JSON.stringify({
@@ -92,7 +99,7 @@ function MostrarListadoArticulosSegunSeccion(Seccion) {
             //proceso los articulos
             for (var i = 0, len = resp.entries.length; i < len; i++) {
                 //verifico si el articulo es correspondiente a la seccion seleccionada
-                if (resp.entries[i].name.indexOf(Seccion) != -1) { 
+                if (resp.entries[i].name.indexOf(Seccion) != -1 && resp.entries[i].name.split("-").length ==3 ) { 
                     var nombreArticulo = resp.entries[i].name.substring(resp.entries[i].name.lastIndexOf("-") +1).replace(".txt","");
                     Contenedor.innerHTML += "<div><a href=\"VistaComun.html?art=" + nombreArticulo +"\">" + nombreArticulo + "</a></div>";
                     HayContenido = true;
