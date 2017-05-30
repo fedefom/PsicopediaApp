@@ -43,4 +43,9 @@
     text-align: center;
 }
 
+.warning{
+    color: red;
+    font-weight: bold;
+}
+
 
