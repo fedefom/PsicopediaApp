@@ -16,7 +16,7 @@
         
         <title>Psicopedia</title>
     </head>
-    <body>
+    <body onload="cargarEventos()">
         <div id="logueos">
 
             <img class="imagenPrincipal"src="img/etci.JPG"/>
@@ -25,7 +25,7 @@
             <br />
             <br />
             <br />
-            <button class="btn btn-info btn-reg" data-toggle="modal" data-target="#myModal">Ingresar sin Registrarse</button>
+            <button class="btn btn-info btn-reg" id="modalBtn" onclick="searchDB()">Ingresar sin Registrarse</button>
 
             <center><button class="btn btn-primary btn-large btn-face">Facebook</button></center>
             <center><div class="g-signin2" data-onsuccess="onSignIn"></div></center>
@@ -49,26 +49,28 @@
                                 </tr>-->
                                 <tr>
                                     <td>
-                                        <input type="number" id="edad" placeholder="Edad" />
-                                        <br />
                                         <label for="edad" id="edadMsj" class="warning"></label>
+                                        <br />
+                                        <input type="number" id="edad" placeholder="Edad" />
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>
+                                        <label for="genero" id="generoMsj" class="warning"></label>
+                                        <br />
                                         <select id="genero">
                                             <option value="Genero">Genero</option>
                                             <option value="Hombre">Hombre</option>
                                             <option value="Mujer">Mujer</option>
                                             <option value="Otros">Otros/as</option>
                                         </select>
-                                        <br />
-                                        <label for="genero" id="generoMsj" class="warning"></label>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>
-                                        <select id="pais" onchange="elejirPais()">
+                                        <label for="pais" id="paisMsj" class="warning"></label>
+                                        <br />
+                                        <select id="pais" onchange="elegirPais()">
                                             <option value="Pais">Pais</option>
                                             <option value="Argentina">Argentina</option>
                                             <option value="Brasil">Brasil</option>
@@ -78,12 +80,12 @@
                                             <option value="Uruguay">Uruguay</option>
                                             <option value="Venezuela">Venezuela</option>
                                         </select>
-                                        <br />
-                                        <label for="pais" id="paisMsj" class="warning"></label>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>
+                                        <label for="provincia" id="provinciaMsj" class="warning"></label>
+                                        <br />
                                         <select id="provincia" class="hide">
                                             <option value="Provincia">Provincia</option>
                                             <option value="Buenos Aires">Buenos Aires</option>
@@ -94,8 +96,6 @@
                                             <option value="Santa Fe">Santa Fe</option>
                                             <option value="Salta">Salta</option>
                                         </select>
-                                        <br />
-                                        <label for="provincia" id="provinciaMsj" class="warning"></label>
                                     </td>
                                 </tr>
                             </table>

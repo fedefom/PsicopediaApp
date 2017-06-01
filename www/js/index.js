@@ -12,23 +12,23 @@
 //        document.addEventListener( 'pause', onPause.bind( this ), false );
 //        document.addEventListener( 'resume', onResume.bind( this ), false );
         
-<<<<<<< HEAD
+//<<<<<<< HEAD
         // TODO: Cordova se ha cargado. Haga aquí las inicializaciones que necesiten Cordova.
-        var parentElement = document.getElementById('deviceready');
-        var listeningElement = parentElement.querySelector('.listening');
-        var receivedElement = parentElement.querySelector('.received');
-        listeningElement.setAttribute('style', 'display:none;');
-        receivedElement.setAttribute('style', 'display:block;');
-    };
+    //    var parentElement = document.getElementById('deviceready');
+    //    var listeningElement = parentElement.querySelector('.listening');
+    //    var receivedElement = parentElement.querySelector('.received');
+    //    listeningElement.setAttribute('style', 'display:none;');
+    //    receivedElement.setAttribute('style', 'display:block;');
+    //};
 
-    function onPause() {
-        // TODO: esta aplicación se ha suspendido. Guarde el estado de la aplicación aquí.
-    };
+//    function onPause() {
+//        // TODO: esta aplicación se ha suspendido. Guarde el estado de la aplicación aquí.
+//    };
 
-    function onResume() {
-        // TODO: esta aplicación se ha reactivado. Restaure el estado de la aplicación aquí.
-    };
-})();
+//    function onResume() {
+//        // TODO: esta aplicación se ha reactivado. Restaure el estado de la aplicación aquí.
+//    };
+//})();
 
 //Logueo con google
 function onSignIn(googleUser) {
@@ -59,7 +59,7 @@ function signOut() {
 }
 
 
-=======
+//=======
 //        // TODO: Cordova se ha cargado. Haga aquí las inicializaciones que necesiten Cordova.
 //        var parentElement = document.getElementById('deviceready');
 //        var listeningElement = parentElement.querySelector('.listening');
@@ -78,7 +78,7 @@ function signOut() {
 //} )();
 
 
-function elejirPais() {
+function elegirPais() {
     var pais = document.getElementById("pais").value;
     var provincia = document.getElementById("provincia");
     if (pais == "Argentina") {
@@ -133,17 +133,92 @@ function validar() {
     if (validarEdad == true && validarGenero == true && validarPais && true) {
         if (pais == "Argentina") {
             if (validarProvincia == true) {
+                insertDB();
                 return true;
             } else {
                 return false;
             }
         }
+        insertDB();
         return true;
     } else {
         return false;
     }
 }
 
+function cargarEventos() {
+    document.getElementById("modalBtn").addEventListener('click', searchDB);
+} 
 
 
->>>>>>> 7dd7f0e937839ab1c3b2e08551cd30d4fc1bdb5f
+
+// Crea laa table en la base de datos si no existe
+function populateDB(tx) {
+    tx.executeSql('CREATE TABLE IF NOT EXISTS USUARIO (id INTEGER PRIMARY KEY AUTOINCREMENT, edad, genero, pais, provincia)');
+}
+
+// Busca en la tabla de la base de datos
+function queryDB(tx) {
+    tx.executeSql('SELECT * FROM USUARIO', [], querySuccess);
+}
+
+// Se ejecuta si busco con exito en la base de datos
+//
+function querySuccess(tx, results) {
+            
+    if (results.rows.length == 0) { // Verifica si obtuvo resultado
+        abrirModal(); // Abre el modal para el registro anonimo
+    }else{
+        window.location.href = "welcome.html"; // Manda directamente al welcome.html
+    }
+            
+}
+
+function abrirModal() {
+    $(document).ready(function () {
+        $("#modalBtn").click(function () {
+            $("#myModal").modal();
+        });
+    });
+}
+
+// Transaction success callback
+//
+function successCB() {
+     alert("success!");
+}
+
+// Transaction error callback
+//
+function errorCB(err) {
+    alert("Error processing SQL: "+err.code);
+}
+
+//function createDB() {
+//    var db = window.openDatabase("Psicopedia", "1.0", "Psicopedia Demo", 200000);
+//    db.transaction(populateDB, errorCB, successCB);
+//}
+
+// Inserta en la base de datos
+function insertSql(tx) {
+    var edad = document.getElementById("edad").value;
+    var genero = document.getElementById("genero").value;
+    var pais = document.getElementById("pais").value;
+    var provincia = document.getElementById("provincia").value;
+    
+    tx.executeSql('INSERT INTO USUARIO (edad,genero,pais,provincia) VALUES ("' + edad
+                    + '","' + genero + '","' + pais + '","' + provincia + '")');
+}
+
+function insertDB() {
+    var db = window.openDatabase("Psicopedia", "1.0", "Psicopedia Demo", 200000);
+    db.transaction(insertSql); //Inserta en la tabla
+}
+
+function searchDB() {
+    var db = window.openDatabase("Psicopedia", "1.0", "Psicopedia Demo", 200000); // Devuelve una instancia de la base de datos
+    db.transaction(populateDB); //Crea la tabla
+    db.transaction(queryDB); // Busca en la tabla
+}
+
+//>>>>>>> 7dd7f0e937839ab1c3b2e08551cd30d4fc1bdb5f

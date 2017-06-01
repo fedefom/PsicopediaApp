@@ -66,7 +66,7 @@ function MostrarSecciones(resp) {
     var elem = document.getElementById("mySidenav");
     var Secciones = resp.split(";");
     for (var i = 0, len = Secciones.length; i < len; i++) {
-        if (Secciones[i]!="")
+        if (Secciones[i] != "")
             elem.innerHTML += '<div onclick="MostrarListadoArticulosSegunSeccion(\'' + Secciones[i].trim() + '\')"><a><label>' + Secciones[i] + '</label></a></div>';
     }
     elem.innerHTML += '<h3>Opciones</h3>';
@@ -99,7 +99,7 @@ function MostrarListadoArticulosSegunSeccion(Seccion) {
             //proceso los articulos
             for (var i = 0, len = resp.entries.length; i < len; i++) {
                 //verifico si el articulo es correspondiente a la seccion seleccionada
-                if (resp.entries[i].name.indexOf(Seccion) != -1 && resp.entries[i].name.split("-").length ==3 ) { 
+                if (resp.entries[i].name.indexOf(Seccion) != -1 && resp.entries[i].name.split("-").length == 3 ) { 
                     var nombreArticulo = resp.entries[i].name.substring(resp.entries[i].name.lastIndexOf("-") +1).replace(".txt","");
                     Contenedor.innerHTML += "<div><a href=\"VistaComun.html?art=" + nombreArticulo +"\">" + nombreArticulo + "</a></div>";
                     HayContenido = true;
