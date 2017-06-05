@@ -1,0 +1,23 @@
+﻿#imagenPpal {
+    float: left;
+    margin: 10px 10px 10px 10px;
+    width: 70px !important;
+    height: 70px !important;
+}
+#imagenSec {
+    float: right;
+    margin: 10px 10px 10px 10px;
+    width: 70px !important;
+    height: 70px !important;
+}
+#sec {
+    text-align:center;
+}
+p {
+    text-align: justify;
+    text-indent: 2em;
+}
+#TituloArticulo {
+    font-family:Georgia, Serif !important;
+    text-decoration: underline;
+}

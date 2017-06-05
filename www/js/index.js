@@ -12,7 +12,7 @@
 //        document.addEventListener( 'pause', onPause.bind( this ), false );
 //        document.addEventListener( 'resume', onResume.bind( this ), false );
         
-<<<<<<< HEAD
+
         // TODO: Cordova se ha cargado. Haga aquí las inicializaciones que necesiten Cordova.
         var parentElement = document.getElementById('deviceready');
         var listeningElement = parentElement.querySelector('.listening');
@@ -146,4 +146,3 @@ function validar() {
 
 
 
->>>>>>> 7dd7f0e937839ab1c3b2e08551cd30d4fc1bdb5f
