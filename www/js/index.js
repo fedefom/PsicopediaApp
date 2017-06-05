@@ -76,6 +76,34 @@ function signOut() {
 //    };
 //} )();
 
+function abrirModal() {
+    activar();
+    $(document).ready(function () {
+        $("#modalBtn").click(function () {
+            $("#myModal").modal();
+        });
+    });
+}
+
+function cerrarModal() {
+    desactivar();
+    $('#myModal').modal('hide');
+}
+
+function activar() {
+    document.getElementById("edad").disabled = false;
+    document.getElementById("genero").disabled = false;
+    document.getElementById("pais").disabled = false;
+    document.getElementById("provincia").disabled = false;
+}
+
+function desactivar() {
+    document.getElementById("edad").disabled = true;
+    document.getElementById("genero").disabled = true;
+    document.getElementById("pais").disabled = true;
+    document.getElementById("provincia").disabled = true;
+}
+
 
 function elegirPais() {
     var pais = document.getElementById("pais").value;
@@ -106,19 +134,19 @@ function validar() {
         validarEdad = true;
     }
     if (genero == "Genero") {
-        document.getElementById("generoMsj").innerText = "Debe elegir un genero";
+        document.getElementById("generoMsj").innerText = "Debe seleccionar un genero";
         validarGenero = false;
     } else {
         document.getElementById("generoMsj").innerText = "";
         validarGenero = true;
     }
     if (pais == "Pais") {
-        document.getElementById("paisMsj").innerText = "Debe elegir un pais";
+        document.getElementById("paisMsj").innerText = "Debe seleccionar un pais";
         validarPais = false;
     } else {
         if (pais == "Argentina") {
             if (provincia == "Provincia") {
-                document.getElementById("provinciaMsj").innerText = "Debe elegir una provincia";
+                document.getElementById("provinciaMsj").innerText = "Debe seleccionar una provincia";
                 validarProvincia = false;
             } else {
                 document.getElementById("provinciaMsj").innerText = "";
@@ -133,6 +161,7 @@ function validar() {
         if (pais == "Argentina") {
             if (validarProvincia == true) {
                 insertDB();
+                cerrarModal();
                 return true;
             } else {
                 return false;
@@ -173,14 +202,6 @@ function querySuccess(tx, results) {
             
 }
 
-function abrirModal() {
-    $(document).ready(function () {
-        $("#modalBtn").click(function () {
-            $("#myModal").modal();
-        });
-    });
-}
-
 // Transaction success callback
 //
 function successCB() {
@@ -219,4 +240,6 @@ function searchDB() {
     db.transaction(populateDB); //Crea la tabla
     db.transaction(queryDB); // Busca en la tabla
 }
+
+
 

@@ -25,7 +25,7 @@
             <br />
             <br />
             <br />
-            <button class="btn btn-info btn-reg" id="modalBtn" onclick="searchDB()">Ingresar sin Registrarse</button>
+            <button class="btn btn-info btn-reg" id="modalBtn" onclick="searchDB()">Registrarse</button>
 
             <center><button class="btn btn-primary btn-large btn-face">Facebook</button></center>
             <center><div class="g-signin2" data-onsuccess="onSignIn"></div></center>
@@ -51,15 +51,15 @@
                                     <td>
                                         <label for="edad" id="edadMsj" class="warning"></label>
                                         <br />
-                                        <input type="number" id="edad" placeholder="Edad" />
+                                        <input type="number" id="edad" placeholder="Edad" min="2" max="2" style="width: 180px;"/>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>
                                         <label for="genero" id="generoMsj" class="warning"></label>
                                         <br />
-                                        <select id="genero">
-                                            <option value="Genero">Genero</option>
+                                        <select id="genero" disabled>
+                                            <option value="Genero">Género</option>
                                             <option value="Hombre">Hombre</option>
                                             <option value="Mujer">Mujer</option>
                                             <option value="Otros">Otros/as</option>
@@ -70,8 +70,8 @@
                                     <td>
                                         <label for="pais" id="paisMsj" class="warning"></label>
                                         <br />
-                                        <select id="pais" onchange="elegirPais()">
-                                            <option value="Pais">Pais</option>
+                                        <select id="pais" disabled onchange="elegirPais()">
+                                            <option value="Pais">País</option>
                                             <option value="Argentina">Argentina</option>
                                             <option value="Brasil">Brasil</option>
                                             <option value="Chile">Chile</option>
@@ -79,6 +79,7 @@
                                             <option value="Paraguay">Paraguay</option>
                                             <option value="Uruguay">Uruguay</option>
                                             <option value="Venezuela">Venezuela</option>
+                                            <option value="Otro">Otro</option>
                                         </select>
                                     </td>
                                 </tr>
@@ -86,7 +87,7 @@
                                     <td>
                                         <label for="provincia" id="provinciaMsj" class="warning"></label>
                                         <br />
-                                        <select id="provincia" class="hide">
+                                        <select id="provincia" disabled class="hide">
                                             <option value="Provincia">Provincia</option>
                                             <option value="Buenos Aires">Buenos Aires</option>
                                             <option value="Catamarca">Catamarca</option>
