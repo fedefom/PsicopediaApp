@@ -11,7 +11,6 @@
 //        // Controlar la pausa de Cordova y reanudar eventos
 //        document.addEventListener( 'pause', onPause.bind( this ), false );
 //        document.addEventListener( 'resume', onResume.bind( this ), false );
-        
 
         // TODO: Cordova se ha cargado. Haga aquí las inicializaciones que necesiten Cordova.
     //    var parentElement = document.getElementById('deviceready');
@@ -59,6 +58,7 @@ function signOut() {
 }
 
 
+//=======
 //        // TODO: Cordova se ha cargado. Haga aquí las inicializaciones que necesiten Cordova.
 //        var parentElement = document.getElementById('deviceready');
 //        var listeningElement = parentElement.querySelector('.listening');
@@ -220,7 +220,3 @@ function searchDB() {
     db.transaction(queryDB); // Busca en la tabla
 }
 
-<<<<<<< HEAD
-=======
-//>>>>>>> 7dd7f0e937839ab1c3b2e08551cd30d4fc1bdb5f
->>>>>>> b72871d319654b2726d7754535c351351694b708

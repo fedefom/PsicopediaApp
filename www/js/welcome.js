@@ -99,8 +99,7 @@ function MostrarListadoArticulosSegunSeccion(Seccion) {
             //proceso los articulos
             for (var i = 0, len = resp.entries.length; i < len; i++) {
                 //verifico si el articulo es correspondiente a la seccion seleccionada
-<<<<<<< HEAD
-                if (resp.entries[i].name.indexOf(Seccion) != -1 && resp.entries[i].name.split("-").length == 4) { 
+                if (resp.entries[i].name.indexOf(Seccion) != -1 && resp.entries[i].name.split("-").length == 4) {
                     var items = resp.entries[i].name.split("-");
                     var seccion = items[0];
                     var codArticulo = items[1];
@@ -109,34 +108,32 @@ function MostrarListadoArticulosSegunSeccion(Seccion) {
                     switch (vista.trim()) {
                         case "1":
                             Contenedor.innerHTML += "<div><a href=\"Vista1.html?art=" + nombreArticulo + "&cod=" + codArticulo + "\">" + nombreArticulo + "</a></div>";
+                            HayContenido = true;
                             break;
                         case "2":
                             Contenedor.innerHTML += "<div><a href=\"Vista2.html?art=" + nombreArticulo + "&cod=" + codArticulo + "\">" + nombreArticulo + "</a></div>";
+                            HayContenido = true;
                             break;
                         case "3":
                             Contenedor.innerHTML += "<div><a href=\"Vista3.html?art=" + nombreArticulo + "&cod=" + codArticulo + "\">" + nombreArticulo + "</a></div>";
+                            HayContenido = true;
                             break;
                         default:
                             Contenedor.innerHTML += "<div><a href=\"Vista1.html?art=" + nombreArticulo + "&cod=" + codArticulo + "\">" + nombreArticulo + "</a></div>";
+                            HayContenido = true;
                     }
-=======
-                if (resp.entries[i].name.indexOf(Seccion) != -1 && resp.entries[i].name.split("-").length == 3 ) { 
-                    var nombreArticulo = resp.entries[i].name.substring(resp.entries[i].name.lastIndexOf("-") +1).replace(".txt","");
-                    Contenedor.innerHTML += "<div><a href=\"VistaComun.html?art=" + nombreArticulo +"\">" + nombreArticulo + "</a></div>";
->>>>>>> b72871d319654b2726d7754535c351351694b708
-                    HayContenido = true;
                 }
-            }
-            //Verifico si se encontraron articulos, en caso contrario lo notifico
-            if (!HayContenido) {
-                Contenedor.innerHTML += "<div><p>No hay articulos relacionados</p></div>";
-            }
-            //minimizo el menu desplegable
-            closeNav();
+                }
+                //Verifico si se encontraron articulos, en caso contrario lo notifico
+                if (!HayContenido) {
+                    Contenedor.innerHTML += "<div><p>No hay articulos relacionados</p></div>";
+                }
+                //minimizo el menu desplegable
+                closeNav();
         } else {
             // En caso de error
             console.log('No se pudo leer el archivo');
-        }
+       }
     };
 
     request.onerror = function () {
