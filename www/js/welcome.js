@@ -69,7 +69,7 @@ function MostrarSecciones(resp) {
         if (Secciones[i] != "")
             elem.innerHTML += '<div onclick="MostrarListadoArticulosSegunSeccion(\'' + Secciones[i].trim() + '\')"><a><label>' + Secciones[i] + '</label></a></div>';
     }
-    elem.innerHTML += '<h3>Opciones</h3>';
+    //elem.innerHTML += '<h3>Opciones</h3>';
 
 }
 //Cuando se selecciona una seccion del menu desplegable, aca se obtiene los articulos relacionados a dicha seccion para mostrarla en el ContenedorPrincipal

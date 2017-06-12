@@ -58,25 +58,33 @@ function signOut() {
     window.location.replace("index.html");
 }
 
+function abrirModal() {
+    activar();
+    $(document).ready(function () {
+        $("#modalBtn").click(function () {
+            $("#myModal").modal();
+        });
+    });
+}
 
-//=======
-//        // TODO: Cordova se ha cargado. Haga aquí las inicializaciones que necesiten Cordova.
-//        var parentElement = document.getElementById('deviceready');
-//        var listeningElement = parentElement.querySelector('.listening');
-//        var receivedElement = parentElement.querySelector('.received');
-//        listeningElement.setAttribute('style', 'display:none;');
-//        receivedElement.setAttribute('style', 'display:block;');
-//    };
+function cerrarModal() {
+    desactivar();
+    $('#myModal').modal('hide');
+}
 
-//    function onPause() {
-//        // TODO: esta aplicación se ha suspendido. Guarde el estado de la aplicación aquí.
-//    };
+function activar() {
+    document.getElementById("edad").disabled = false;
+    document.getElementById("genero").disabled = false;
+    document.getElementById("pais").disabled = false;
+    document.getElementById("provincia").disabled = false;
+}
 
-//    function onResume() {
-//        // TODO: esta aplicación se ha reactivado. Restaure el estado de la aplicación aquí.
-//    };
-//} )();
-
+function desactivar() {
+    document.getElementById("edad").disabled = true;
+    document.getElementById("genero").disabled = true;
+    document.getElementById("pais").disabled = true;
+    document.getElementById("provincia").disabled = true;
+}
 
 function elegirPais() {
     var pais = document.getElementById("pais").value;
@@ -87,7 +95,6 @@ function elegirPais() {
         provincia.style.display = "none";
     }
 }
-
 
 function validar() {
     var edad = document.getElementById("edad").value;
@@ -107,19 +114,19 @@ function validar() {
         validarEdad = true;
     }
     if (genero == "Genero") {
-        document.getElementById("generoMsj").innerText = "Debe elegir un genero";
+        document.getElementById("generoMsj").innerText = "Debe seleccionar un genero";
         validarGenero = false;
     } else {
         document.getElementById("generoMsj").innerText = "";
         validarGenero = true;
     }
     if (pais == "Pais") {
-        document.getElementById("paisMsj").innerText = "Debe elegir un pais";
+        document.getElementById("paisMsj").innerText = "Debe seleccionar un pais";
         validarPais = false;
     } else {
         if (pais == "Argentina") {
             if (provincia == "Provincia") {
-                document.getElementById("provinciaMsj").innerText = "Debe elegir una provincia";
+                document.getElementById("provinciaMsj").innerText = "Debe seleccionar una provincia";
                 validarProvincia = false;
             } else {
                 document.getElementById("provinciaMsj").innerText = "";
@@ -130,10 +137,11 @@ function validar() {
         validarPais = true;
     }
 
-    if (validarEdad == true && validarGenero == true && validarPais && true) {
+    if (validarEdad == true && validarGenero == true && validarPais == true) {
         if (pais == "Argentina") {
             if (validarProvincia == true) {
                 insertDB();
+                cerrarModal();
                 return true;
             } else {
                 return false;
@@ -152,72 +160,4 @@ function cargarEventos() {
 
 
 
-// Crea laa table en la base de datos si no existe
-function populateDB(tx) {
-    tx.executeSql('CREATE TABLE IF NOT EXISTS USUARIO (id INTEGER PRIMARY KEY AUTOINCREMENT, edad, genero, pais, provincia)');
-}
-
-// Busca en la tabla de la base de datos
-function queryDB(tx) {
-    tx.executeSql('SELECT * FROM USUARIO', [], querySuccess);
-}
-
-// Se ejecuta si busco con exito en la base de datos
-//
-function querySuccess(tx, results) {
-            
-    if (results.rows.length == 0) { // Verifica si obtuvo resultado
-        abrirModal(); // Abre el modal para el registro anonimo
-    }else{
-        window.location.href = "welcome.html"; // Manda directamente al welcome.html
-    }
-            
-}
-
-function abrirModal() {
-    $(document).ready(function () {
-        $("#modalBtn").click(function () {
-            $("#myModal").modal();
-        });
-    });
-}
-
-// Transaction success callback
-//
-function successCB() {
-     alert("success!");
-}
-
-// Transaction error callback
-//
-function errorCB(err) {
-    alert("Error processing SQL: "+err.code);
-}
-
-//function createDB() {
-//    var db = window.openDatabase("Psicopedia", "1.0", "Psicopedia Demo", 200000);
-//    db.transaction(populateDB, errorCB, successCB);
-//}
-
-// Inserta en la base de datos
-function insertSql(tx) {
-    var edad = document.getElementById("edad").value;
-    var genero = document.getElementById("genero").value;
-    var pais = document.getElementById("pais").value;
-    var provincia = document.getElementById("provincia").value;
-    
-    tx.executeSql('INSERT INTO USUARIO (edad,genero,pais,provincia) VALUES ("' + edad
-                    + '","' + genero + '","' + pais + '","' + provincia + '")');
-}
-
-function insertDB() {
-    var db = window.openDatabase("Psicopedia", "1.0", "Psicopedia Demo", 200000);
-    db.transaction(insertSql); //Inserta en la tabla
-}
-
-function searchDB() {
-    var db = window.openDatabase("Psicopedia", "1.0", "Psicopedia Demo", 200000); // Devuelve una instancia de la base de datos
-    db.transaction(populateDB); //Crea la tabla
-    db.transaction(queryDB); // Busca en la tabla
-}
 

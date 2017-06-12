@@ -4,14 +4,18 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
     <meta name="google-signin-client_id" content="248584404173-10svpq42vv5ugqaig09mlj7gtukua0es.apps.googleusercontent.com">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"><!-- Dropdown -->
     <script src="https://apis.google.com/js/platform.js" async defer></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://apis.google.com/js/client:platform.js"></script>
     <link href="css/bootstrap.css" rel="stylesheet" type="text/css" />
     <link href="css/Welcome.css" rel="stylesheet" type="text/css" />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script><!--Dropdown-->
     <script type="text/javascript" src="js/index.js"></script>
     <script type="text/javascript" src="js/welcome.js"></script>
     <script type="text/javascript" src="js/preguntas.js"></script>
+    <script type="text/javascript" src="js/baseDeDatos.js"></script>
+    
     <title></title>
 </head>
 <body >
@@ -29,11 +33,21 @@
                         <!--<a href="welcome.html"><img src="img/home.jpg" id="imagenHome"></a>-->          
                     </div>
                 </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle opciones" data-toggle="dropdown"><strong>Opciones <b class="caret"></b></strong></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Artículos más leídos</a></li>
+                        <li><a href="#">Quiénes somos</a></li>
+                        <li><a href="consultas.html">Enviar consultas</a></li>
+                        <li><a href="#">Área de prevención</a></li>
+                        <li><a href="#">Configuración</a></li>
+                    </ul>
+                </li>
             </ul>
             <ul class="nav pull-right">
                 <li class="pull-right">
-                    <div style="padding-top:10px">
-                        <a href="index.html">Sign Out</a>
+                    <div>
+                        <a href="#" class="btn btn-primary" onclick="deleteDB()">Cerrar Sesion</a>
                     </div>
                 </li>
             </ul>
@@ -44,7 +58,6 @@
         <div id="mySidenav" class="sidenav">
             <a id="cerrarBtn" href="#" class="closebtn">→</a>
             <h3>Secciones</h3>
-
         </div>
 
         <br />

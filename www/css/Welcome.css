@@ -80,3 +80,12 @@ div > div > a:hover {
     text-align: center;
     vertical-align: central;
 }
+
+.preguntas-btn{
+    height: 50px;
+}
+
+.opciones {
+    font-weight: bold;
+    color: black;
+}
