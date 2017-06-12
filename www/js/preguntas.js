@@ -79,6 +79,11 @@ function ObtenerPreguntas(codigo) {
 
                 }
             }
+            var contenido = $("#ContenidoPrincipal").html();
+            if (contenido == "") {
+                RedireccionarArticulo(codigo);
+            }
+
 
         } else {
             // En caso de error
@@ -91,4 +96,77 @@ function ObtenerPreguntas(codigo) {
     };
 
     request.send();
+}
+
+
+
+function RedireccionarArticulo(codigo) {
+
+    var access_token = 'hD6ZEfkGwbAAAAAAAAAAB64YKvNF4qCgA026Y9mqceeaE4jdtPcFAL_vCZZU4zmy';
+    var request = new XMLHttpRequest();
+    var datos = JSON.stringify({
+        'path': "/Articulos",
+
+    });
+
+    request.open('POST', 'https://api.dropboxapi.com/2/files/list_folder', false);
+    request.setRequestHeader('Authorization', 'Bearer ' + access_token);
+    request.setRequestHeader('Content-Type', 'application/json');
+
+    request.onload = function () {
+        var redireccion = "";
+        if (request.status >= 200 && request.status < 400) {
+            var resp = JSON.parse(request.responseText);
+            for (var i = 0, len = resp.entries.length; i < len; i++) {
+                if (resp.entries[i].name.indexOf(codigo) != -1){
+                    //verifico si el articulo es correspondiente a la seccion seleccionada
+                    if ( resp.entries[i].name.split("-").length == 4) {
+                        var items = resp.entries[i].name.split("-");
+                        var seccion = items[0];
+                        var codArticulo = items[1];
+                        var nombreArticulo = items[2];
+                        var vista = items[3].replace(".txt", "");
+                        //window.ga.trackView(nombreArticulo);
+                        switch (vista.trim()) {
+                            case "1":
+                                redireccion = "Vista1.html?art=" + nombreArticulo + "&cod=" + codArticulo;
+                                break;
+                            case "2":
+                                redireccion = "Vista2.html?art=" + nombreArticulo + "&cod=" + codArticulo;
+                                break;
+                            case "3":
+                                redireccion = "Vista3.html?art=" + nombreArticulo + "&cod=" + codArticulo;
+                                break;
+                            default:
+                                redireccion = "Vista1.html?art=" + nombreArticulo + "&cod=" + codArticulo;
+                                break;
+                        }
+
+                        }
+                }
+            }
+            if (redireccion != "") {
+                Redireccionar(redireccion);
+            } else {
+                $("#ContenidoPrincipal").append("<p>No existe el articulo buscado.</p>")
+            }
+
+
+        } else {
+            // En caso de error
+            console.log('No se pudo leer el archivo');
+        }
+    };
+
+    request.onerror = function () {
+        console.log('No existe el archivo');
+    };
+
+    request.send(datos);
+
+
+
+}
+function Redireccionar(url) {
+    window.location.href = url;
 }

@@ -65,7 +65,7 @@ function ConsultaSecciones(metodo, datos) {
 function MostrarSecciones(resp) {
     var elem = document.getElementById("mySidenav");
     var Secciones = resp.split(";");
-    for (var i = 0, len = Secciones.length; i < len; i++) {
+    for (var i = 0, len = Secciones.length - 1; i < len; i++) {
         if (Secciones[i] != "")
             elem.innerHTML += '<div onclick="MostrarListadoArticulosSegunSeccion(\'' + Secciones[i].trim() + '\')"><a><label>' + Secciones[i] + '</label></a></div>';
     }
@@ -105,6 +105,7 @@ function MostrarListadoArticulosSegunSeccion(Seccion) {
                     var codArticulo = items[1];
                     var nombreArticulo = items[2];
                     var vista = items[3].replace(".txt", "");
+                    //window.ga.trackView(nombreArticulo);
                     switch (vista.trim()) {
                         case "1":
                             Contenedor.innerHTML += "<div><a href=\"Vista1.html?art=" + nombreArticulo + "&cod=" + codArticulo + "\">" + nombreArticulo + "</a></div>";
@@ -122,6 +123,7 @@ function MostrarListadoArticulosSegunSeccion(Seccion) {
                             Contenedor.innerHTML += "<div><a href=\"Vista1.html?art=" + nombreArticulo + "&cod=" + codArticulo + "\">" + nombreArticulo + "</a></div>";
                             HayContenido = true;
                     }
+                    
                 }
                 }
                 //Verifico si se encontraron articulos, en caso contrario lo notifico
