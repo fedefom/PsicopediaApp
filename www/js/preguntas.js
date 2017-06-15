@@ -171,6 +171,10 @@ function RedireccionarArticulo(codigo) {
 
 
 }
-function Redireccionar(url) {
-    window.location.href = url;
+function Redireccionar(url) { 
+    window.location= url
+    //var Contenedor = document.getElementById("ContenidoPrincipal");
+    //Contenedor.innerHTML += "<div><a id=\"redirect\"href=\"" + url + "\">este</a></div>";
+    //document.getElementById('redirect').click();
+
 }

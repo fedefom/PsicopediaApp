@@ -105,6 +105,7 @@ function MostrarListadoArticulosSegunSeccion(Seccion) {
                     var codArticulo = items[1];
                     var nombreArticulo = items[2];
                     var vista = items[3].replace(".txt", "");
+                    //ga_storage._trackPageview('Welcome.html', 'optional title');
                     //window.ga.trackView(nombreArticulo);
                     switch (vista.trim()) {
                         case "1":

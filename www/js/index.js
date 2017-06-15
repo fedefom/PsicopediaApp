@@ -17,8 +17,8 @@
         var receivedElement = parentElement.querySelector('.received');
         listeningElement.setAttribute('style', 'display:none;');
         receivedElement.setAttribute('style', 'display:block;');
-        window.ga.startTrackerWithId('UA-100822752-1');
-        window.analytics.debugMode();
+        //window.ga.startTrackerWithId('UA-100822752-1');
+        //window.analytics.debugMode();
     };
 
     function onPause() {
@@ -148,6 +148,7 @@ function validar() {
             }
         }
         insertDB();
+        cerrarModal();
         return true;
     } else {
         return false;
