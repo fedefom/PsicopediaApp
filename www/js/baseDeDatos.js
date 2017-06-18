@@ -1,6 +1,6 @@
 ﻿// Crea laa table en la base de datos si no existe
 function populateDB(tx) {
-    tx.executeSql('CREATE TABLE IF NOT EXISTS USUARIO (id INTEGER PRIMARY KEY AUTOINCREMENT, edad, genero, pais, provincia)');
+    tx.executeSql('CREATE TABLE IF NOT EXISTS USUARIO (id INTEGER PRIMARY KEY AUTOINCREMENT, edad, genero)');
 }
 
 // Busca en la tabla de la base de datos
@@ -39,11 +39,11 @@ function errorCB(err) {
 function insertSql(tx) {
     var edad = document.getElementById("edad").value;
     var genero = document.getElementById("genero").value;
-    var pais = document.getElementById("pais").value;
-    var provincia = document.getElementById("provincia").value;
+    //var pais = document.getElementById("pais").value;
+    //var provincia = document.getElementById("provincia").value;
 
-    tx.executeSql('INSERT INTO USUARIO (edad,genero,pais,provincia) VALUES ("' + edad
-        + '","' + genero + '","' + pais + '","' + provincia + '")');
+    tx.executeSql('INSERT INTO USUARIO (edad,genero) VALUES ("' + edad
+        + '","' + genero + '")');
 }
 
 function dropSql(tx) {

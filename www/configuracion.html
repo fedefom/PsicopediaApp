@@ -3,34 +3,35 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"><!-- Dropdown -->
+    <meta name="google-signin-client_id" content="248584404173-10svpq42vv5ugqaig09mlj7gtukua0es.apps.googleusercontent.com">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <link href="css/bootstrap.css" rel="stylesheet" type="text/css" />
     <link href="css/Welcome.css" rel="stylesheet" type="text/css" />
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script><!--Dropdown-->
-    <link href="css/vista3.css" rel="stylesheet" type="text/css" />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
     <script type="text/javascript" src="js/welcome.js"></script>
-    <script type="text/javascript" src="js/Articulos.js"></script>
     <script type="text/javascript" src="js/baseDeDatos.js"></script>
+    <script type="text/javascript" src="js/configuracion.js"></script>
     <title></title>
 </head>
-<body>
+<body onload="cargarDatos()">
     <div class="navbar">
         <div class="navbar-inner">
             <ul class="nav">
                 <li class="active">
                     <div style="padding-top:10px">
-                        <span id="AbrirBtn" style="font-size:24px;cursor:pointer">&#8801;</span>
+                        <span id="AbrirBtn" style="font-size:30px;cursor:pointer">&#8801;</span>
                     </div>
                 </li>
                 <li>
                     <div style="padding-top:10px">
-                        <a href="welcome.html" style="padding-left: 10px;"><i class="icon-home"></i></a>
-                        <!--<a href="welcome.html"><img src="img/home.jpg" id="imagenHome"></a>-->
+                        <a href="welcome.html" style="padding-left: 15px;"><i class="glyphicon glyphicon-home" style="font-size: 20px;color: black;"></i></a>
                     </div>
                 </li>
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle opciones" data-toggle="dropdown"><strong>Opciones <b class="caret"></b></strong></a>
+                    <a href="#" class="opciones dropdown-toggle" data-toggle="dropdown">Opciones <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         <li><a href="#">Artículos más leídos</a></li>
                         <li><a href="quienes.html">Quiénes somos</a></li>
@@ -54,19 +55,31 @@
     <div id="mySidenav" class="sidenav">
         <a id="cerrarBtn" href="#" class="closebtn">→</a>
         <h3>Secciones</h3>
-
     </div>
 
     <br />
     <br />
-    <center><i><h1 id="TituloArticulo"></h1></i></center>
     <div id="ContenidoPrincipal">
-
+        <div>
+            <form onsubmit="return updateDatos()" action="welcome.html">
+                <input type="number" id="edad" placeholder="edad" min="1" max="99" style="width: 100%; height: 30px;" />
+                <br />
+                <select id="genero" style="width: 100%">
+                    <option value="Hombre">Hombre</option>
+                    <option value="Mujer">Mujer</option>
+                    <option value="Otros">Otros/as</option>
+                </select>
+                <br />
+                <button type="submit" class="btn btn-success">Modificar</button>
+            </form>
+        </div>
+        <br />
+        <br />
+        <div id="divFace">
+            <h3 style="text-align: center">Facebook</h3>
+            <br />
+            <button id="cerrarFace" class="btn btn-primary btn-block face-close">Cerrar Sesion</button>
+        </div>
     </div>
-    <footer>
-        <MARQUEE style="position: relative; margin-top:230px"> Version de prueba 1.1 </MARQUEE>
-    </footer>
-
-
 </body>
 </html>

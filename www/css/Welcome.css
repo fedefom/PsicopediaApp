@@ -83,9 +83,29 @@ div > div > a:hover {
 
 .preguntas-btn{
     height: 50px;
+    font-size: 20px;
 }
 
 .opciones {
     font-weight: bold;
     color: black;
+}
+
+body, label, a {
+    font-size: 20px;
+}
+
+.face-close{
+    height: 40px;
+    width: 80%;
+    margin-left: 10%;
+    font-size: 20px;
+}
+
+#intro > p{
+    font-size: 15px;
+}
+
+.info{
+    font-size: 15px;
 }
