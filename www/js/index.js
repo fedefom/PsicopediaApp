@@ -30,33 +30,33 @@
     };
 })();
 
-//Logueo con google
-function onSignIn(googleUser) {
-    var param = location.search.split("=");
-    //var articulo = param[1].replace("%20", "").replace("%20", " ");
-    if (param.length ==1) {
+////Logueo con google
+//function onSignIn(googleUser) {
+//    var param = location.search.split("=");
+//    //var articulo = param[1].replace("%20", "").replace("%20", " ");
+//    if (param.length ==1) {
 
-        var profile = googleUser.getBasicProfile();
-        console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
-        console.log('Name: ' + profile.getName());
-        console.log('Image URL: ' + profile.getImageUrl());
-        console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
-        window.location.replace("welcome.html?google=true");
-    } else {
-        deslogueo = param[1].replace(/%20/g, " ");
-        if (deslogueo == "false") {
-            signOut();
-        }
-    }
-}
-//Deslogueo google
-function signOut() {
-    var auth2 = gapi.auth2.getAuthInstance();
-    auth2.signOut().then(function () {
-            console.log('User signed out.');
-    });
-    window.location.replace("index.html");
-}
+//        var profile = googleUser.getBasicProfile();
+//        console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+//        console.log('Name: ' + profile.getName());
+//        console.log('Image URL: ' + profile.getImageUrl());
+//        console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+//        window.location.replace("welcome.html?google=true");
+//    } else {
+//        deslogueo = param[1].replace(/%20/g, " ");
+//        if (deslogueo == "false") {
+//            signOut();
+//        }
+//    }
+//}
+////Deslogueo google
+//function signOut() {
+//    var auth2 = gapi.auth2.getAuthInstance();
+//    auth2.signOut().then(function () {
+//            console.log('User signed out.');
+//    });
+//    window.location.replace("index.html");
+//}
 
 function abrirModal() {
     activar();
@@ -75,15 +75,15 @@ function cerrarModal() {
 function activar() {
     document.getElementById("edad").disabled = false;
     document.getElementById("genero").disabled = false;
-    document.getElementById("pais").disabled = false;
-    document.getElementById("provincia").disabled = false;
+    //document.getElementById("pais").disabled = false;
+    //document.getElementById("provincia").disabled = false;
 }
 
 function desactivar() {
     document.getElementById("edad").disabled = true;
     document.getElementById("genero").disabled = true;
-    document.getElementById("pais").disabled = true;
-    document.getElementById("provincia").disabled = true;
+    //document.getElementById("pais").disabled = true;
+    //document.getElementById("provincia").disabled = true;
 }
 
 //function elegirPais() {
@@ -120,38 +120,6 @@ function validar() {
         document.getElementById("generoMsj").innerText = "";
         validarGenero = true;
     }
-    if (pais == "Pais") {
-        document.getElementById("paisMsj").innerText = "Debe seleccionar un pais";
-        validarPais = false;
-    } else {
-        if (pais == "Argentina") {
-            if (provincia == "Provincia") {
-                document.getElementById("provinciaMsj").innerText = "Debe seleccionar una provincia";
-                validarProvincia = false;
-            } else {
-                document.getElementById("provinciaMsj").innerText = "";
-                validarProvincia = true;
-            }
-        }
-        document.getElementById("paisMsj").innerText = "";
-        validarPais = true;
-    }
-
-    if (validarEdad == true && validarGenero == true && validarPais == true) {
-        if (pais == "Argentina") {
-            if (validarProvincia == true) {
-                insertDB();
-                ga('send', {
-                    hitType: 'screenview',
-                    screenName: '/' + edad ,
-                    appName: edad
-                });
-                cerrarModal();
-                return true;
-            } else {
-                return false;
-            }
-        }
     //if (pais == "Pais") {
     //    document.getElementById("paisMsj").innerText = "Debe seleccionar un pais";
     //    validarPais = false;
@@ -170,19 +138,48 @@ function validar() {
     //}
 
     if (validarEdad == true && validarGenero == true) {
-        //if (pais == "Argentina") {
-        //    if (validarProvincia == true) {
-        //        insertDB();
-        //        cerrarModal();
-        //        return true;
-        //    } else {
-        //        return false;
+                insertDB();
+                ga('send', {
+                    hitType: 'screenview',
+                    screenName: '/' + edad,
+                    appName: edad
+                });
+                cerrarModal();
+                return true;
+        
+
+        //if (pais == "Pais") {
+        //    document.getElementById("paisMsj").innerText = "Debe seleccionar un pais";
+        //    validarPais = false;
+        //} else {
+        //    if (pais == "Argentina") {
+        //        if (provincia == "Provincia") {
+        //            document.getElementById("provinciaMsj").innerText = "Debe seleccionar una provincia";
+        //            validarProvincia = false;
+        //        } else {
+        //            document.getElementById("provinciaMsj").innerText = "";
+        //            validarProvincia = true;
+        //        }
         //    }
+        //    document.getElementById("paisMsj").innerText = "";
+        //    validarPais = true;
         //}
-        insertDB();
-        cerrarModal();
-        return true;
-    } else {
-        return false;
+
+        //if (validarEdad == true && validarGenero == true) {
+        //    //if (pais == "Argentina") {
+        //    //    if (validarProvincia == true) {
+        //    //        insertDB();
+        //    //        cerrarModal();
+        //    //        return true;
+        //    //    } else {
+        //    //        return false;
+        //    //    }
+        //    //}
+        //    insertDB();
+        //    cerrarModal();
+        //    return true;
+        //} else {
+        //    return false;
+        //}
     }
 }

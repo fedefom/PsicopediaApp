@@ -15,7 +15,7 @@ function ObtenerPreguntas(codigo) {
     request.open('POST', 'https://content.dropboxapi.com/2/' + metodo, false);
     request.setRequestHeader('Authorization', 'Bearer ' + access_token);
     request.setRequestHeader('Dropbox-API-Arg', datos);
-
+    request.overrideMimeType('text/xml; charset=iso-8859-1')
     request.onload = function () {
         if (request.status >= 200 && request.status < 400) {
             //resp obtengo las secciones
@@ -116,7 +116,7 @@ function RedireccionarArticulo(codigo) {
     request.open('POST', 'https://api.dropboxapi.com/2/files/list_folder', false);
     request.setRequestHeader('Authorization', 'Bearer ' + access_token);
     request.setRequestHeader('Content-Type', 'application/json');
-
+    request.overrideMimeType('text/xml; charset=iso-8859-1')
     request.onload = function () {
         var redireccion = "";
         if (request.status >= 200 && request.status < 400) {

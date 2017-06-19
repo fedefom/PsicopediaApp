@@ -15,13 +15,20 @@
     padding-top: 60px;
     padding-bottom:60px;
 }
+
+
+
+#carga {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
 /*#redirect {
     display:none;
 }*/
-
-    .sidenav > .sidenav-header {
-        background-color: #35b9ff;
-    }
+.sidenav > .sidenav-header {
+    background-color: #35b9ff;
+}
 
     .sidenav a {
         padding: 8px 8px 8px 32px;

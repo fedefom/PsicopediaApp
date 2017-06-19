@@ -34,7 +34,7 @@ function Buscar(articulo) {
     request.open('POST', 'https://api.dropboxapi.com/2/files/list_folder', false);
     request.setRequestHeader('Authorization', 'Bearer ' + access_token);
     request.setRequestHeader('Content-Type', 'application/json');
-
+    request.overrideMimeType('text/xml; charset=iso-8859-1')
     request.onload = function () {
         if (request.status >= 200 && request.status < 400) {
        
@@ -75,7 +75,7 @@ function LeoArticulo(nombre) {
     request.open('POST', 'https://content.dropboxapi.com/2/' + metodo, false);
     request.setRequestHeader('Authorization', 'Bearer ' + access_token);
     request.setRequestHeader('Dropbox-API-Arg', datos);
-
+    request.overrideMimeType('text/xml; charset=iso-8859-1')
     request.onload = function () {
         if (request.status >= 200 && request.status < 400) {
             var mitad = Math.trunc((request.responseText.length)/2);
@@ -111,7 +111,7 @@ function PegoImagen(cod) {
         request.open('POST', 'https://api.dropboxapi.com/2/files/list_folder', false);
         request.setRequestHeader('Authorization', 'Bearer ' + access_token);
         request.setRequestHeader('Content-Type', 'application/json');
-
+        request.overrideMimeType('text/xml; charset=iso-8859-1')
         request.onload = function () {
             if (request.status >= 200 && request.status < 400) {
                 var primeraVez= true;
@@ -149,7 +149,7 @@ function insertar(nombre, primeraVez) {
     request.open('POST', 'https://api.dropboxapi.com/2/files/get_temporary_link', false);
     request.setRequestHeader('Authorization', 'Bearer ' + access_token);
     request.setRequestHeader('Content-Type', 'application/json');
-
+    request.overrideMimeType('text/xml; charset=iso-8859-1')
     request.onload = function () {
         if (request.status >= 200 && request.status < 400) {
             var resp = JSON.parse(request.responseText);

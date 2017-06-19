@@ -1,0 +1,17 @@
+﻿#tablaPrevencion p {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    font-family: "Times New Roman", Times, serif;
+}
+#tablaPrevencion {
+    border: 2px solid;
+    margin-left: 10px;
+    margin-right: 10px !important;
+    border-color: white;
+    background-color: #49afcd;
+    border-radius: 30px 30px 30px 30px;
+    padding-right: 10px;
+    color:white;
+}
