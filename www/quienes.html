@@ -1,7 +1,6 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
     <meta name="google-signin-client_id" content="248584404173-10svpq42vv5ugqaig09mlj7gtukua0es.apps.googleusercontent.com">
@@ -11,8 +10,10 @@
     <link href="css/bootstrap.css" rel="stylesheet" type="text/css" />
     <link href="css/Welcome.css" rel="stylesheet" type="text/css" />
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
     <script type="text/javascript" src="js/welcome.js"></script>
     <script type="text/javascript" src="js/baseDeDatos.js"></script>
+    <script type="text/javascript" src="js/configuracion.js"></script>
     <title></title>
 </head>
 <body>
@@ -59,13 +60,35 @@
     <br />
     <br />
     <div id="ContenidoPrincipal">
-        <input type="text" id="email" placeholder="Email" style="width: 100%; height: 30px;" />
-        <br />
-        <input type="text" id="asunto" placeholder="Asunto" style="width: 100%; height: 30px;" />
-        <br />
-        <textarea id="consulta" placeholder="Consulta" style="width: 100%; height: 200px;"></textarea>
-        <br />
-        <button class="btn btn-success btn">Enviar Consulta</button> 
+        <div id="intro">
+            <p>ETCI es una fundación sin fines de lucro, autorizada por la resolución de la I.G.J. Nº 001026. Su Directorio esta conformado por un grupo de psicólogos especializados en el abordaje clínico de problemáticas en niños y adolescentes. Nucleados por inquietudes e intereses comunes que motivaron la investigación y desarrollo conjunto de recursos en el área.</p>
+            <!--<p>Su Directorio esta conformado por un grupo de psicólogos especializados en el abordaje clínico de problemáticas en niños y adolescentes.</p>
+            <p>Nucleados por inquietudes e intereses comunes que motivaron la investigación y desarrollo conjunto de recursos en el área.</p>-->
+            <p>Actualmente en el ámbito de la Fundación se desarrollan cursos, grupos de supervisión, presentaciones y artículos centrados en adaptar los principios metodológicos de la terapia cognitiva infanto juvenil a nuestro contexto cultural. Asimismo brindamos un espacio para que especialistas en la materia provean asistencia psicoterapéutica a niños, adolescentes y familias con diversas problemáticas.</p>
+            <!--<p>Asimismo brindamos un espacio para que especialistas en la materia provean asistencia psicoterapéutica a niños, adolescentes y familias con diversas problemáticas.</p>-->
+        </div>
+        <div id="datos">
+            <table>
+                <tr>
+                    <td>
+                        <p class="info"><strong>Telefono</strong></p>
+                        <p class="info">4788-5894</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p class="info"><strong>Email</strong></p>
+                        <p class="info">info@etci.com.ar</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p class="info"><strong>Direccion</strong></p>
+                        <p class="info">Amenabar 2880, Belgrano, C.A.B.A.</p>
+                    </td>
+                </tr>
+            </table>
+        </div>
     </div>
 </body>
 </html>
