@@ -13,6 +13,13 @@
   //Buscar articulo
     Buscar(articulo);
     PegoImagen(codigo);
+
+    //hago el hit para google analytics
+    ga('send', {
+        hitType: 'screenview',
+        screenName: '/'+ articulo,
+        appName: articulo
+    });
 });
 
 function Buscar(articulo) {

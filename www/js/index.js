@@ -141,6 +141,11 @@ function validar() {
         if (pais == "Argentina") {
             if (validarProvincia == true) {
                 insertDB();
+                ga('send', {
+                    hitType: 'screenview',
+                    screenName: '/' + edad ,
+                    appName: edad
+                });
                 cerrarModal();
                 return true;
             } else {
