@@ -9,6 +9,7 @@
     <link href="css/Welcome.css" rel="stylesheet" type="text/css" />
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script><!--Dropdown-->
     <link href="css/vista3.css" rel="stylesheet" type="text/css" />
+    <link href="css/loading.css" rel="stylesheet" type="text/css" />
     <script type="text/javascript" src="js/welcome.js"></script>
     <script type="text/javascript" src="js/Articulos.js"></script>
     <script type="text/javascript" src="js/baseDeDatos.js"></script>
@@ -75,7 +76,8 @@
 
     <title></title>
 </head>
-<body>
+<body onload="validarLogeoAnonimo()">
+    <div id="load" class="loader"></div>
     <div class="navbar">
         <div class="navbar-inner">
             <ul class="nav">
@@ -104,7 +106,7 @@
             <ul class="nav pull-right">
                 <li class="pull-right">
                     <div>
-                        <a href="#" class="btn btn-primary" onclick="deleteDB()">Cerrar Sesion</a>
+                        <a href="#" id="cerrarButton" class="btn btn-primary" onclick="deleteDB()">Cerrar Sesion</a>
                     </div>
                 </li>
             </ul>

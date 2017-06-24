@@ -94,6 +94,7 @@ div > div > a:hover {
 .preguntas-btn{
     height: 50px;
     font-size: 20px;
+    width: 100%;
 }
 
 .opciones {
@@ -118,4 +119,9 @@ body, label, a {
 
 .info{
     font-size: 15px;
+}
+
+#divFace{
+    margin-top: 20%;
+    display: none;
 }

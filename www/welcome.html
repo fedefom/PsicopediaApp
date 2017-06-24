@@ -11,6 +11,7 @@
     <script src="https://apis.google.com/js/client:platform.js"></script>
     <link href="css/bootstrap.css" rel="stylesheet" type="text/css" />
     <link href="css/Welcome.css" rel="stylesheet" type="text/css" />
+    <link href="css/loading.css" rel="stylesheet" type="text/css" />
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script><!--Dropdown-->
     <script type="text/javascript" src="js/index.js"></script>
     <script type="text/javascript" src="js/welcome.js"></script>
@@ -80,7 +81,8 @@
 
     <title></title>
 </head>
-<body>
+<body onload="validarLogeoAnonimo()">
+    <div id="load" class="loader"></div>
     <div class="navbar">
         <div class="navbar-inner">
             <ul class="nav">
@@ -116,7 +118,7 @@
             <ul class="nav pull-right">
                 <li class="pull-right">
                     <div>
-                        <a href="#" class="btn btn-primary" onclick="deleteDB()">Cerrar Sesion</a>
+                        <a href="#" id="cerrarButton" class="btn btn-primary" onclick="deleteDB()">Cerrar Sesion</a>
                     </div>
                 </li>
             </ul>
@@ -132,7 +134,7 @@
         <br />
         <br />
         <div id="ContenidoPrincipal">
-            <img src="img/loading1.gif" id="carga" style="width:128px;height:128px;">
+            <!--<img src="img/loading1.gif" id="carga" style="width:128px;height:128px;">-->
         </div>
     <footer>
         <MARQUEE style="position: relative; margin-top:230px"> Version de prueba 1.1 </MARQUEE>
