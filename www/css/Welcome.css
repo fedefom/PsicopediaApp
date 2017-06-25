@@ -91,10 +91,11 @@ div > div > a:hover {
     vertical-align: central;
 }
 
-.preguntas-btn{
+.preguntas-btn {
     height: 50px;
     font-size: 20px;
     width: 100%;
+    white-space: normal;
 }
 
 .opciones {
