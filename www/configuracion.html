@@ -9,6 +9,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <link href="css/bootstrap.css" rel="stylesheet" type="text/css" />
     <link href="css/Welcome.css" rel="stylesheet" type="text/css" />
+    <link href="css/loading.css" rel="stylesheet" type="text/css" />
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
     <script type="text/javascript" src="js/welcome.js"></script>
@@ -16,7 +17,17 @@
     <script type="text/javascript" src="js/configuracion.js"></script>
     <title></title>
 </head>
-<body onload="cargarDatos()">
+<body>
+    <script>
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v2.9&appId=121460021782812";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
+    <div id="load" class="loader"></div>
     <div class="navbar">
         <div class="navbar-inner">
             <ul class="nav">
@@ -31,7 +42,7 @@
                     </div>
                 </li>
                 <li class="dropdown">
-                    <a href="#" class="opciones dropdown-toggle" data-toggle="dropdown">Opciones <b class="caret"></b></a>
+                    <a href="#" class="opciones dropdown-toggle" data-toggle="dropdown" style="padding-left: 13px;"><strong>Opciones <b class="caret"></b></strong></a>
                     <ul class="dropdown-menu">
                         <li><a href="#">Artículos más leídos</a></li>
                         <li><a href="quienes.html">Quiénes somos</a></li>
@@ -44,7 +55,7 @@
             <ul class="nav pull-right">
                 <li class="pull-right">
                     <div>
-                        <a href="#" class="btn btn-primary" onclick="deleteDB()">Cerrar Sesion</a>
+                        <a href="#" id="cerrarButton" class="btn btn-primary" onclick="deleteDB()">Cerrar Sesion</a>
                     </div>
                 </li>
             </ul>
@@ -60,17 +71,17 @@
     <br />
     <br />
     <div id="ContenidoPrincipal">
-        <div>
+        <div id="divDatos" style="margin-top: 20%;">
             <form onsubmit="return updateDatos()" action="welcome.html">
-                <input type="number" id="edad" placeholder="edad" min="1" max="99" style="width: 100%; height: 30px;" />
+                <input type="number" id="edad" placeholder="Edad" min="1" max="99" style="width: 80%; height: 30px; margin-left: 10%;" />
                 <br />
-                <select id="genero" style="width: 100%">
+                <select id="genero" style="width: 80%; margin-left: 10%;">
                     <option value="Hombre">Hombre</option>
                     <option value="Mujer">Mujer</option>
                     <option value="Otros">Otros/as</option>
                 </select>
                 <br />
-                <button type="submit" class="btn btn-success">Modificar</button>
+                <button type="submit" class="btn btn-success" style="width: 80%; margin-left: 10%; height: 30px;">Modificar</button>
             </form>
         </div>
         <br />
@@ -78,7 +89,9 @@
         <div id="divFace" style="display: none;">
             <h3 style="text-align: center">Facebook</h3>
             <br />
-            <button id="cerrarFace" class="btn btn-primary btn-block face-close">Cerrar Sesion</button>
+            <label id="name" style="margin-left: 10%;"></label>
+            <br />
+            <button id="cerrarFace" class="btn btn-primary btn-block face-close" onclick="logout()">Cerrar Sesion</button>
         </div>
     </div>
 </body>

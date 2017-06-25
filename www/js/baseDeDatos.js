@@ -14,8 +14,8 @@ function querySuccess(tx, results) {
 
     if (results.rows.length != 0) { // Verifica si obtuvo resultado
         window.location.href = "welcome.html"; // Manda directamente al welcome.html
-    }
-
+        
+    } 
 }
 
 // Transaction success callback
@@ -65,4 +65,21 @@ function searchDB() {
 function deleteDB() {
     var db = window.openDatabase("Psicopedia", "1.0", "Psicopedia Demo", 200000);
     db.transaction(dropSql);
+}
+
+function validarLogeoAnonimo() {
+    var db = window.openDatabase("Psicopedia", "1.0", "Psicopedia Demo", 200000);
+    db.transaction(buscarDatosExistentes);
+}
+
+function buscarDatosExistentes(tx) {
+    tx.executeSql('SELECT * FROM USUARIO', [], exito);
+}
+
+function exito(tx, results) {
+    if (results.rows.length == 0) { // Verifica si obtuvo resultado
+        //var page = location.pathname.split("/").slice(-1);
+        document.getElementById("cerrarButton").style.display = "none";
+    }
+    document.getElementById("load").style.display = "none";
 }

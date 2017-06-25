@@ -10,12 +10,24 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <link href="css/bootstrap.css" rel="stylesheet" type="text/css" />
     <link href="css/Welcome.css" rel="stylesheet" type="text/css" />
+    <link href="css/loading.css" rel="stylesheet" type="text/css" />
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/welcome.js"></script>
+    <script type="text/javascript" src="js/consultas.js"></script>
     <script type="text/javascript" src="js/baseDeDatos.js"></script>
     <title></title>
 </head>
 <body>
+    <script>
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v2.9&appId=121460021782812";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
+    <div id="load" class="loader"></div>
     <div class="navbar">
         <div class="navbar-inner">
             <ul class="nav">
@@ -30,7 +42,7 @@
                     </div>
                 </li>
                 <li class="dropdown">
-                    <a href="#" class="opciones dropdown-toggle" data-toggle="dropdown">Opciones <b class="caret"></b></a>
+                    <a href="#" class="opciones dropdown-toggle" data-toggle="dropdown" style="padding-left: 13px;"><strong>Opciones <b class="caret"></b></strong></a>
                     <ul class="dropdown-menu">
                         <li><a href="#">Artículos más leídos</a></li>
                         <li><a href="quienes.html">Quiénes somos</a></li>
@@ -43,7 +55,7 @@
             <ul class="nav pull-right">
                 <li class="pull-right">
                     <div>
-                        <a href="#" class="btn btn-primary" onclick="deleteDB()">Cerrar Sesion</a>
+                        <a href="#" id="cerrarButton" class="btn btn-primary" onclick="deleteDB()">Cerrar Sesion</a>
                     </div>
                 </li>
             </ul>
@@ -59,7 +71,7 @@
     <br />
     <br />
     <div id="ContenidoPrincipal">
-        <input type="text" id="email" placeholder="Email" style="width: 100%; height: 30px;" />
+        <input type="text" id="mail" placeholder="Email" style="width: 100%; height: 30px;" />
         <br />
         <input type="text" id="asunto" placeholder="Asunto" style="width: 100%; height: 30px;" />
         <br />

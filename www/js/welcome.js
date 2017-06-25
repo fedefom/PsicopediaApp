@@ -145,6 +145,4 @@ function MostrarListadoArticulosSegunSeccion(Seccion) {
 
     request.send(datos);
 
-
-
 }

@@ -1,49 +1,11 @@
-﻿function buscarDatos() {
-    var db = window.openDatabase("Psicopedia", "1.0", "Psicopedia Demo", 200000);
-    db.transaction(getDatosDB);
-}
-
-function getDatosDB(tx) {
-    tx.executeSql('SELECT * FROM USUARIO', [], querySuccess, errorCB);
-}
-
-function querySuccess(tx, results) {
-    var edad = document.getElementById("edad");
-    var genero = document.getElementById("genero");
-    if (results.rows.length != 0) {
-        edad.value = results.rows.item(0).edad;
-        $(function () {
-            var temp = results.rows.item(0).genero;
-            $("#genero").val(temp);
-        });
-
-    }
-}
-
-function updateDatos() {
-    var db = window.openDatabase("Psicopedia", "1.0", "Psicopedia Demo", 200000);
-    db.transaction(updateDB);
-    return true;
-}
-
-function updateDB(tx) {
-    var edad = document.getElementById("edad").value;
-    var genero = document.getElementById("genero").value;
-    tx.executeSql('UPDATE USUARIO SET EDAD = ' + edad + ' , genero = "' + genero + '" WHERE ID = 1');
-}
-
-// This is called with the results from from FB.getLoginStatus().
+﻿// This is called with the results from from FB.getLoginStatus().
 function statusChangeCallback(response) {
     console.log('statusChangeCallback');
     console.log(response);
     if (response.status === 'connected') {
         // Logged into your app and Facebook.
         testAPI();
-        document.getElementById("divFace").style.display = "block";
-        document.getElementById("divDatos").style.display = "none";
-    } else {
-        buscarDatos();
-    }
+    } 
     validarLogeoAnonimo();
 }
 
@@ -87,17 +49,8 @@ window.fbAsyncInit = function () {
 // successful.  See statusChangeCallback() for when this call is made.
 function testAPI() {
     console.log('Welcome!  Fetching your information.... ');
-    FB.api('/me', function (response) {
-        console.log('Successful login for: ' + response.name);
-        //FEDE COMPLETAR PARA QUE GRABE EL RANGO DE EDAD EN EL GA
-        var nombre = document.getElementById("name");
-        nombre.innerHTML = "<strong>Nombre: </strong>" + response.name;
-    });
-}
-
-function logout() {
-    FB.logout(function (response) {
-        // Person is now logged out
-        window.location.href = "index.html";
+    FB.api('/me', { fields: 'email' }, function (response) {
+        console.log('Successful login for: ' + response.email);
+        document.getElementById("mail").value = response.email;
     });
 }
