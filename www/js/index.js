@@ -231,5 +231,18 @@ function testAPI() {
     });
 }
 
+function facebookLogin() {
+    FB.login(function (response) {
+        if (response.status === 'connected') {
+            // Logged into your app and Facebook.
+            var page = document.getElementById("pagina").innerText;
+            console.log(page);
+            window.location.href = page;
+        } else {
+            // The person is not logged into this app or we are unable to tell. 
+        }
+    }, { scope: 'public_profile,email' });
+}
+
 
 
