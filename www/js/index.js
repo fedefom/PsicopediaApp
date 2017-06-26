@@ -17,10 +17,33 @@
         var receivedElement = parentElement.querySelector('.received');
         listeningElement.setAttribute('style', 'display:none;');
         receivedElement.setAttribute('style', 'display:block;');
+
+
         //window.ga.startTrackerWithId('UA-100822752-1');
         //window.analytics.debugMode();
     };
 
+
+    //$(document).ready(function () {
+    //    jQuery.loadScript = function () {
+    //        jQuery.ajax({
+    //            url: 'https://apis.google.com/js/platform.js',
+    //            dataType: 'script',
+    //            success: function (result) {
+    //                crearboton();
+    //            },
+    //            async: true
+    //        });
+    //    }
+
+    //    var cont = document.getElementById('logueos');
+    //    cont.innerHTML += '<div id="signInButton" class="g-signin2" data-onsuccess="onSignIn">este</div>';
+    //});
+
+
+    //function crearboton() {
+       
+    //}
     function onPause() {
         // TODO: esta aplicación se ha suspendido. Guarde el estado de la aplicación aquí.
     };
@@ -30,26 +53,56 @@
     };
 })();
 
-////Logueo con google
-//function onSignIn(googleUser) {
-//    var param = location.search.split("=");
-//    //var articulo = param[1].replace("%20", "").replace("%20", " ");
-//    if (param.length ==1) {
+//function onGapiLoaded() {
+//    auth = gapi.auth2.init({
+//        client_id: "248584404173-10svpq42vv5ugqaig09mlj7gtukua0es.apps.googleusercontent.com",
+//        scope: "gpsicopedia@gmail.com"
 
-//        var profile = googleUser.getBasicProfile();
-//        console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
-//        console.log('Name: ' + profile.getName());
-//        console.log('Image URL: ' + profile.getImageUrl());
-//        console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
-//        window.location.replace("welcome.html?google=true");
-//    } else {
-//        deslogueo = param[1].replace(/%20/g, " ");
-//        if (deslogueo == "false") {
-//            signOut();
-//        }
-//    }
+//    });
+
+//    console.log("signed in: " + auth.isSignedIn.get());
+
+//    auth.isSignedIn.listen(function (signedIn) { console.log("signedin: " + signedIn) });
+
+//    gapi.signin2.render("signInButton", {
+//        'width': 230,
+//        'height': 50,
+//        'longtitle': true,
+//        'theme': 'dark',
+//        'onsuccess': onSignIn
+//    });
 //}
-////Deslogueo google
+
+//function onSignIn(googleUser) {
+//    // Useful data for your client-side scripts:
+//    var profile = googleUser.getBasicProfile();
+//    console.log("Name: " + profile.getName());
+//};
+
+
+
+
+
+//////Logueo con google
+function onSignIn(googleUser) {
+    var param = location.search.split("=");
+    //var articulo = param[1].replace("%20", "").replace("%20", " ");
+    if (param.length ==1) {
+
+        var profile = googleUser.getBasicProfile();
+        console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+        console.log('Name: ' + profile.getName());
+        console.log('Image URL: ' + profile.getImageUrl());
+        console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+        window.location.replace("welcome.html?google=true");
+    } else {
+        deslogueo = param[1].replace(/%20/g, " ");
+        if (deslogueo == "false") {
+            signOut();
+        }
+    }
+}
+//////Deslogueo google
 //function signOut() {
 //    var auth2 = gapi.auth2.getAuthInstance();
 //    auth2.signOut().then(function () {

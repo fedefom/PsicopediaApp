@@ -6,7 +6,11 @@
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">  
         <meta name="google-signin-client_id" content="248584404173-10svpq42vv5ugqaig09mlj7gtukua0es.apps.googleusercontent.com">
 
+
+
+        <!--<script src="js/gmail.js" async defer></script>-->
         <script src="https://apis.google.com/js/platform.js" async defer></script>
+        <!--<script src="https://apis.google.com/js/platform.js?onload=onGapiLoaded" async defer></script>-->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
         <script src="js/index.js"></script>
@@ -14,6 +18,36 @@
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
         <link rel="stylesheet" type="text/css" href="css/estilos.css">
+        <!--<script type="text/javascript">
+
+              function onGapiLoaded() {
+                  auth = gapi.auth2.init({
+                      client_id: "REPLACE_WITH_YOUR_ID",
+                      scope: "profile email"
+
+                  });
+
+                  console.log("signed in: " + auth.isSignedIn.get());
+
+                  auth.isSignedIn.listen(function (signedIn) { console.log("signedin: " + signedIn) });
+
+                  gapi.signin2.render("signInButton", {
+                      'width': 230,
+                      'height': 50,
+                      'longtitle': true,
+                      'theme': 'dark',
+                      'onsuccess': onSignIn
+                  });
+              }
+
+              function onSignIn(googleUser) {
+                  // Useful data for your client-side scripts:
+                  var profile = googleUser.getBasicProfile();
+                  console.log("Name: " + profile.getName());
+              };
+
+
+        </script>-->
 
         <script>
 
@@ -115,6 +149,7 @@
             
             <br />
             <br />
+            <!--<div id="signInButton" class="g-signin2"></div>-->
             <center><div class="g-signin2" data-onsuccess="onSignIn"></div></center>
         </div>
         <form action="welcome.html" id="formLog" onsubmit="return validar()">
