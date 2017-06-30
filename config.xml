@@ -9,7 +9,13 @@
   <engine name="ios" spec="4.2.0" />
   <engine name="windows" spec="4.4.2" />
   <content src="index.html" />
+  <access origin="tel:*" launch-external="yes"/>
+  <access origin="geo:*" launch-external="yes"/>
+  <access origin="mailto:*" launch-external="yes"/>
+  <access origin="sms:*" launch-external="yes"/>
+  <access origin="market:*" launch-external="yes"/>
   <access origin="*" />
+  <allow-navigation href="https://apis.google.com/*" />
   <allow-navigation href="*" />
   <preference name="SplashScreen" value="screen" />
   <preference name="windows-target-version" value="10.0" />
@@ -21,6 +27,7 @@
   <allow-intent href="sms:*" />
   <allow-intent href="mailto:*" />
   <allow-intent href="geo:*" />
+  <allow-intent href="*" />
   <platform name="android">
     <allow-intent href="market:*" />
   </platform>

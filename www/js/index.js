@@ -84,24 +84,24 @@
 
 
 //////Logueo con google
-function onSignIn(googleUser) {
-    var param = location.search.split("=");
-    //var articulo = param[1].replace("%20", "").replace("%20", " ");
-    if (param.length ==1) {
+//function onSignIn(googleUser) {
+//    var param = location.search.split("=");
+//    //var articulo = param[1].replace("%20", "").replace("%20", " ");
+//    if (param.length ==1) {
 
-        var profile = googleUser.getBasicProfile();
-        console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
-        console.log('Name: ' + profile.getName());
-        console.log('Image URL: ' + profile.getImageUrl());
-        console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
-        window.location.replace("welcome.html?google=true");
-    } else {
-        deslogueo = param[1].replace(/%20/g, " ");
-        if (deslogueo == "false") {
-            signOut();
-        }
-    }
-}
+//        var profile = googleUser.getBasicProfile();
+//        console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+//        console.log('Name: ' + profile.getName());
+//        console.log('Image URL: ' + profile.getImageUrl());
+//        console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+//        window.location.replace("welcome.html?google=true");
+//    } else {
+//        deslogueo = param[1].replace(/%20/g, " ");
+//        if (deslogueo == "false") {
+//            signOut();
+//        }
+//    }
+//}
 //////Deslogueo google
 //function signOut() {
 //    var auth2 = gapi.auth2.getAuthInstance();
@@ -159,7 +159,7 @@ function validar() {
     //var validarPais;
     //var validarProvincia;
 
-    if (edad == 0) {
+    if (edad == "Edad") {
         document.getElementById("edadMsj").innerText = "Debe completar la edad";
         validarEdad = false;
     } else {
@@ -173,22 +173,6 @@ function validar() {
         document.getElementById("generoMsj").innerText = "";
         validarGenero = true;
     }
-    //if (pais == "Pais") {
-        //    document.getElementById("paisMsj").innerText = "Debe seleccionar un pais";
-        //    validarPais = false;
-        //} else {
-        //    if (pais == "Argentina") {
-        //        if (provincia == "Provincia") {
-        //            document.getElementById("provinciaMsj").innerText = "Debe seleccionar una provincia";
-        //            validarProvincia = false;
-        //        } else {
-        //            document.getElementById("provinciaMsj").innerText = "";
-        //            validarProvincia = true;
-        //        }
-        //    }
-        //    document.getElementById("paisMsj").innerText = "";
-        //    validarPais = true;
-    //}
 
     if (validarEdad == true && validarGenero == true) {
         insertDB();
@@ -197,17 +181,14 @@ function validar() {
         screenName: '/' + edad,
         appName: edad
         });
+        ga('send', {
+            hitType: 'screenview',
+            screenName: '/' + genero,
+            appName: genero
+        });
         cerrarModal();
         return true;
-        //if (pais == "Argentina") {
-        //    if (validarProvincia == true) {
-        //        insertDB();
-        //        cerrarModal();
-        //        return true;
-        //    } else {
-        //        return false;
-        //    }
-        //}
+
     } else {
         return false
     }

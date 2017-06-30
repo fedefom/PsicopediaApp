@@ -6,8 +6,6 @@
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">  
         <meta name="google-signin-client_id" content="248584404173-10svpq42vv5ugqaig09mlj7gtukua0es.apps.googleusercontent.com">
 
-
-
         <!--<script src="js/gmail.js" async defer></script>-->
         <script src="https://apis.google.com/js/platform.js" async defer></script>
         <!--<script src="https://apis.google.com/js/platform.js?onload=onGapiLoaded" async defer></script>-->
@@ -174,7 +172,16 @@
                                     <td>
                                         <label for="edad" id="edadMsj" class="warning"></label>
                                         <br />
-                                        <input type="number" id="edad" placeholder="Edad" min="1" max="99" style="width: 206px;"/>
+                                        <select id="edad" disabled>
+                                            <option value="Edad">Edad</option>
+                                            <option value="1-17">1-17</option>
+                                            <option value="18-24">18-24</option>
+                                            <option value="25-34">25-34</option>
+                                            <option value="35-44">35-44</option>
+                                            <option value="45-54">45-54</option>
+                                            <option value="55-99">55-99</option>
+                                        </select>
+                                        <!--<input type="number" id="edad" placeholder="Edad" min="1" max="99" style="width: 206px;"/>-->
                                     </td>
                                 </tr>
                                 <tr>
@@ -189,42 +196,6 @@
                                         </select>
                                     </td>
                                 </tr>
-                                <tr>
-                                    <td><label id="pagina" style="display: none;">welcome.html</label></td>
-                                </tr>
-                                <!--<tr>
-                                    <td>
-                                        <label for="pais" id="paisMsj" class="warning"></label>
-                                        <br />
-                                        <select id="pais" disabled onchange="elegirPais()">
-                                            <option value="Pais">País</option>
-                                            <option value="Argentina">Argentina</option>
-                                            <option value="Brasil">Brasil</option>
-                                            <option value="Chile">Chile</option>
-                                            <option value="Colombia">Colombia</option>
-                                            <option value="Paraguay">Paraguay</option>
-                                            <option value="Uruguay">Uruguay</option>
-                                            <option value="Venezuela">Venezuela</option>
-                                            <option value="Otro">Otro</option>
-                                        </select>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <label for="provincia" id="provinciaMsj" class="warning"></label>
-                                        <br />
-                                        <select id="provincia" disabled class="hide">
-                                            <option value="Provincia">Provincia</option>
-                                            <option value="Buenos Aires">Buenos Aires</option>
-                                            <option value="Catamarca">Catamarca</option>
-                                            <option value="Cordoba">Cordoba</option>
-                                            <option value="Jujuy">Jujuy</option>
-                                            <option value="Mendoza">Mendoza</option>
-                                            <option value="Santa Fe">Santa Fe</option>
-                                            <option value="Salta">Salta</option>
-                                        </select>
-                                    </td>
-                                </tr>-->
                             </table>
 
                         </div>

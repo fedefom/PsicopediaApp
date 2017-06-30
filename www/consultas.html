@@ -27,7 +27,7 @@
             fjs.parentNode.insertBefore(js, fjs);
         }(document, 'script', 'facebook-jssdk'));
     </script>
-    <div id="load" class="loader"></div>
+    <!--<div id="load" class="loader"></div>-->
     <div class="navbar">
         <div class="navbar-inner">
             <ul class="nav">
@@ -44,7 +44,6 @@
                 <li class="dropdown">
                     <a href="#" class="opciones dropdown-toggle" data-toggle="dropdown" style="padding-left: 13px;"><strong>Opciones <b class="caret"></b></strong></a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">Artículos más leídos</a></li>
                         <li><a href="quienes.html">Quiénes somos</a></li>
                         <li><a href="consultas.html">Enviar consultas</a></li>
                         <li><a href="prevencion.html">Área de prevención</a></li>
@@ -71,13 +70,12 @@
     <br />
     <br />
     <div id="ContenidoPrincipal">
-        <input type="text" id="mail" placeholder="Email" style="width: 100%; height: 30px;" />
-        <br />
+
         <input type="text" id="asunto" placeholder="Asunto" style="width: 100%; height: 30px;" />
         <br />
         <textarea id="consulta" placeholder="Consulta" style="width: 100%; height: 200px;"></textarea>
         <br />
-        <button class="btn btn-success btn">Enviar Consulta</button> 
+        <button onclick="EnviarMail()" class="btn btn-success btn">Enviar Consulta</button> 
     </div>
 </body>
 </html>

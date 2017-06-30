@@ -17,8 +17,8 @@
     <script type="text/javascript" src="js/configuracion.js"></script>
     <title></title>
 </head>
-<body>
-    <script>
+<body onload="buscarDatos()">
+    <!--<script>
         (function (d, s, id) {
             var js, fjs = d.getElementsByTagName(s)[0];
             if (d.getElementById(id)) return;
@@ -26,7 +26,7 @@
             js.src = "//connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v2.9&appId=121460021782812";
             fjs.parentNode.insertBefore(js, fjs);
         }(document, 'script', 'facebook-jssdk'));
-    </script>
+    </script>-->
     <div id="load" class="loader"></div>
     <div class="navbar">
         <div class="navbar-inner">
@@ -44,7 +44,6 @@
                 <li class="dropdown">
                     <a href="#" class="opciones dropdown-toggle" data-toggle="dropdown" style="padding-left: 13px;"><strong>Opciones <b class="caret"></b></strong></a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">Artículos más leídos</a></li>
                         <li><a href="quienes.html">Quiénes somos</a></li>
                         <li><a href="consultas.html">Enviar consultas</a></li>
                         <li><a href="prevencion.html">Área de prevención</a></li>
@@ -73,7 +72,14 @@
     <div id="ContenidoPrincipal">
         <div id="divDatos" style="margin-top: 20%;">
             <form onsubmit="return updateDatos()" action="welcome.html">
-                <input type="number" id="edad" placeholder="Edad" min="1" max="99" style="width: 80%; height: 30px; margin-left: 10%;" />
+                <select id="edad" style="width: 80%; margin-left: 10%;">
+                    <option value="1-17">1-17</option>
+                    <option value="18-24">18-24</option>
+                    <option value="25-34">25-34</option>
+                    <option value="35-44">35-44</option>
+                    <option value="45-54">45-54</option>
+                    <option value="55-99">55-99</option>
+                </select>
                 <br />
                 <select id="genero" style="width: 80%; margin-left: 10%;">
                     <option value="Hombre">Hombre</option>
