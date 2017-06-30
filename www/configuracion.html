@@ -54,7 +54,7 @@
             <ul class="nav pull-right">
                 <li class="pull-right">
                     <div>
-                        <a href="#" id="cerrarButton" class="btn btn-primary" onclick="deleteDB()">Cerrar Sesion</a>
+                        <a href="#" id="cerrarButton" class="btn btn-primary" onclick="deleteDB()">Salir</a>
                     </div>
                 </li>
             </ul>
@@ -72,6 +72,8 @@
     <div id="ContenidoPrincipal">
         <div id="divDatos" style="margin-top: 20%;">
             <form onsubmit="return updateDatos()" action="welcome.html">
+                <label for="edad" style="margin-left: 10%;">Edad</label>
+                <br />
                 <select id="edad" style="width: 80%; margin-left: 10%;">
                     <option value="1-17">1-17</option>
                     <option value="18-24">18-24</option>
@@ -80,6 +82,8 @@
                     <option value="45-54">45-54</option>
                     <option value="55-99">55-99</option>
                 </select>
+                <br />
+                <label for="genero" style="margin-left: 10%;">Genero</label>
                 <br />
                 <select id="genero" style="width: 80%; margin-left: 10%;">
                     <option value="Hombre">Hombre</option>
