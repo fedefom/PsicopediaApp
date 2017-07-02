@@ -5,7 +5,7 @@
 
     //obtengo el articulo
     articulo = param[1].replace(/%20/g, " ").replace("&cod", "").trim();
-
+    articulo = decodeURI(articulo);
     //obtengo el articulo
     var codigo = param[2].replace(/%20/g, " ").trim();
     $("#TituloArticulo").append(articulo);
@@ -43,7 +43,7 @@ function Buscar(articulo) {
                 //verifico si el articulo es correspondiente a la seccion seleccionada
                 if (resp.entries[i].name.indexOf(articulo) != -1) {
                     var nombreArticulo = resp.entries[i].name;
-                    LeoArticulo(nombreArticulo);
+                    LeoArticulo(resp.entries[i].id);
                 }
             }
         } else {
@@ -63,11 +63,11 @@ function Buscar(articulo) {
 }
 
 
-function LeoArticulo(nombre) {
+function LeoArticulo(id) {
 
     var metodo = 'files/download';
     var datos = JSON.stringify({
-        'path': "/Articulos/" + nombre,
+        "path": id
     });
     var access_token = 'hD6ZEfkGwbAAAAAAAAAAB64YKvNF4qCgA026Y9mqceeaE4jdtPcFAL_vCZZU4zmy';
     var request = new XMLHttpRequest();
