@@ -18,6 +18,10 @@
 //    });
 //}
 
+function cargarVista() {
+    document.getElementById("load").style.display = "none";
+}
+
 function EnviarMail() {
     var subject = $("#asunto").val();
     var cuerpo = $("#consulta").val();

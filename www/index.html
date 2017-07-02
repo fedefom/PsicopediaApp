@@ -110,7 +110,7 @@
         <title>Psicopedia</title>
     </head>
     <body onload="searchDB()">
-        <div id="fb-root"></div>
+        <!--<div id="fb-root"></div>
         <script>
             (function (d, s, id) {
                 var js, fjs = d.getElementsByTagName(s)[0];
@@ -119,7 +119,7 @@
                 js.src = "//connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v2.9&appId=121460021782812";
                 fjs.parentNode.insertBefore(js, fjs);
             }(document, 'script', 'facebook-jssdk'));
-        </script>
+        </script>-->
         
         <div id="logueos">
 
@@ -129,11 +129,11 @@
             <br />
             <br />
             <br />
-            <button class="btn btn-info btn-reg" id="modalBtn" data-toggle="modal" data-target="#myModal" onclick="activar()">Registrarse</button>
+            <button class="btn btn-info btn-reg" id="modalBtn" data-toggle="modal" data-target="#myModal" onclick="activar()">Ingresar</button>
             <br />
             <br />
 
-            <button id="faceButton" class="btn btn-primary btn-face" onclick="facebookLogin()">Inicar Sesión con Facebook</button>
+            <!--<button id="faceButton" class="btn btn-primary btn-face" onclick="facebookLogin()">Inicar Sesión con Facebook</button>-->
 
             <!--<div class="fb-login-button" 
                  data-max-rows="1" 
@@ -163,11 +163,7 @@
                             <h4 class="modal-title">Complete los siguientes datos</h4>
                         </div>
                         <div class="modal-body modal-scroll">
-
                             <table>
-                                <!--<tr>
-                                    <td><input type="text" placeholder="Nombre" name="nombre" /></td>
-                                </tr>-->
                                 <tr>
                                     <td>
                                         <label for="edad" id="edadMsj" class="warning"></label>
@@ -181,7 +177,6 @@
                                             <option value="45-54">45-54</option>
                                             <option value="55-99">55-99</option>
                                         </select>
-                                        <!--<input type="number" id="edad" placeholder="Edad" min="1" max="99" style="width: 206px;"/>-->
                                     </td>
                                 </tr>
                                 <tr>
