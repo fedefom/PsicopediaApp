@@ -144,7 +144,7 @@ function validar() {
 
 
     if (edad == "Edad") {
-        document.getElementById("edadMsj").innerText = "Debe completar la edad";
+        document.getElementById("edadMsj").innerText = "Debe seleccionar un rango de edad";
         validarEdad = false;
     } else {
         document.getElementById("edadMsj").innerText = "";
@@ -185,16 +185,12 @@ function validar() {
 //    // The response object is returned with a status field that lets the
 //    // app know the current login status of the person.
 //    // Full docs on the response object can be found in the documentation
-//    // for FB.getLoginStatus().
-//    var page = document.getElementById("pagina").innerText;
-//    console.log(page);
+//    // for FB.getLoginStatus()
 //    if (response.status === 'connected') {
-//        // Logged into your app and Facebook.
-//        window.location.href = page;
+//        
 //        //testAPI();
 //    } else {
-//        page = document.getElementById("pagina").innerText = "completar.html";
-//        console.log(page);
+//       
 //    }
 //}
 
@@ -238,14 +234,9 @@ function validar() {
 //// successful.  See statusChangeCallback() for when this call is made.
 //function testAPI() {
 //    console.log('Welcome!  Fetching your information.... ');
-//    FB.api('/me', { fields: 'name,email,age_range' }, function (response) {
+//    FB.api('/me', function (response) {
 //        console.log(response);
 //        console.log('Successful login for: ' + response.name);
-//        console.log('Successful login for: ' + response.email);
-//        console.log('Successful login for: ' + response.age_range.min);
-        
-//        //FEDE COMPLETAR PARA QUE GRABE EL RANGO DE EDAD EN EL GA
-//        window.location.href = "welcome.html";
 //    });
 //}
 

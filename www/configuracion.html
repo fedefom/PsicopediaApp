@@ -18,15 +18,6 @@
     <title></title>
 </head>
 <body onload="buscarDatos()">
-    <!--<script>
-        (function (d, s, id) {
-            var js, fjs = d.getElementsByTagName(s)[0];
-            if (d.getElementById(id)) return;
-            js = d.createElement(s); js.id = id;
-            js.src = "//connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v2.9&appId=121460021782812";
-            fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));
-    </script>-->
     <div id="load" class="loader"></div>
     <div class="navbar">
         <div class="navbar-inner">
@@ -70,38 +61,48 @@
     <br />
     <br />
     <div id="ContenidoPrincipal">
-        <div id="divDatos" style="margin-top: 20%;">
+        <h3 style="text-align:center">Configuración</h3>
+        <div id="divDatos" style="margin-top: 20%;">            
             <form onsubmit="return updateDatos()" action="welcome.html">
-                <label for="edad" style="margin-left: 10%;">Edad</label>
-                <br />
-                <select id="edad" style="width: 80%; margin-left: 10%;">
-                    <option value="1-17">1-17</option>
-                    <option value="18-24">18-24</option>
-                    <option value="25-34">25-34</option>
-                    <option value="35-44">35-44</option>
-                    <option value="45-54">45-54</option>
-                    <option value="55-99">55-99</option>
-                </select>
-                <br />
-                <label for="genero" style="margin-left: 10%;">Genero</label>
-                <br />
-                <select id="genero" style="width: 80%; margin-left: 10%;">
-                    <option value="Hombre">Hombre</option>
-                    <option value="Mujer">Mujer</option>
-                    <option value="Otros">Otros/as</option>
-                </select>
-                <br />
-                <button type="submit" class="btn btn-success" style="width: 80%; margin-left: 10%; height: 30px;">Modificar</button>
+                <table style="margin-left:10%; width: 100%;">
+                    <tr>
+                        <td>
+                            <strong><label for="edad" style="font-size: 15px; font-weight: bold">Rango de Edad</label></strong>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <select id="edad" style="width: 80%;">
+                                <option value="12-18">12-18</option>
+                                <option value="18-30">18-30</option>
+                                <option value="30-45">30-45</option>
+                                <option value="45-60">45-60</option>
+                                <option value="60 en adelante">60 en adelante</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong><label for="genero" style="font-size: 15px; font-weight: bold">Genero</label></strong>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <select id="genero" style="width: 80%;">
+                                <option value="Hombre">Hombre</option>
+                                <option value="Mujer">Mujer</option>
+                                <option value="Otros">Otros/as</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <button type="submit" class="btn btn-success" style="width: 80%; height: 30px;">Modificar</button>
+                        </td>
+                    </tr>
+                </table>
+                
             </form>
-        </div>
-        <br />
-        <br />
-        <div id="divFace" style="display: none;">
-            <h3 style="text-align: center">Facebook</h3>
-            <br />
-            <label id="name" style="margin-left: 10%;"></label>
-            <br />
-            <button id="cerrarFace" class="btn btn-primary btn-block face-close" onclick="logout()">Cerrar Sesion</button>
         </div>
     </div>
 </body>
