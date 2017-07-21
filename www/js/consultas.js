@@ -15,14 +15,10 @@ function EnviarMail() {
 
 function validarAsunto() {
     var asunto = document.getElementById("asunto").value;
-    var mensaje = document.getElementById("asuntoMsj");
     if (asunto != "") {
-        mensaje.style.display = "none";
-        mensaje.innerText = "";
         EnviarMail();
     } else {
-        mensaje.innerText = "El asunto es obligatorio";
-        mensaje.style.display = "block";
+        alert("El asunto es obligatorio");
     }
 }
 
