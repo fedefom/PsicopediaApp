@@ -1,7 +1,4 @@
-﻿// Si quiere una introducción sobre la plantilla En blanco, vea la siguiente documentación:
-// http://go.microsoft.com/fwlink/?LinkID=397704
-// Para depurar código al cargar la página en cordova-simulate o en dispositivos o emuladores Android: inicie la aplicación, establezca puntos de interrupción 
-// y ejecute "window.location.reload()" en la Consola de JavaScript.
+﻿
 (function () {
     "use strict";
 
@@ -18,32 +15,9 @@
         listeningElement.setAttribute('style', 'display:none;');
         receivedElement.setAttribute('style', 'display:block;');
 
-
-        //window.ga.startTrackerWithId('UA-100822752-1');
-        //window.analytics.debugMode();
     };
 
-
-    //$(document).ready(function () {
-    //    jQuery.loadScript = function () {
-    //        jQuery.ajax({
-    //            url: 'https://apis.google.com/js/platform.js',
-    //            dataType: 'script',
-    //            success: function (result) {
-    //                crearboton();
-    //            },
-    //            async: true
-    //        });
-    //    }
-
-    //    var cont = document.getElementById('logueos');
-    //    cont.innerHTML += '<div id="signInButton" class="g-signin2" data-onsuccess="onSignIn">este</div>';
-    //});
-
-
-    //function crearboton() {
-       
-    //}
+    
     function onPause() {
         // TODO: esta aplicación se ha suspendido. Guarde el estado de la aplicación aquí.
     };
@@ -135,7 +109,7 @@ function desactivar() {
     document.getElementById("genero").disabled = true;
 }
 
-
+//valida ingresos en modal
 function validar() {
     var edad = document.getElementById("edad").value;
     var genero = document.getElementById("genero").value;

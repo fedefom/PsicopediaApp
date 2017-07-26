@@ -9,7 +9,7 @@
     Obtener(metodo, datos);
 });
 
-
+//obtengo la informacion de quienes somos
 function Obtener(metodo, datos) {
     var access_token = 'hD6ZEfkGwbAAAAAAAAAAB64YKvNF4qCgA026Y9mqceeaE4jdtPcFAL_vCZZU4zmy';
     var request = new XMLHttpRequest();

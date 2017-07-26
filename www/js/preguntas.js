@@ -2,7 +2,7 @@
     ObtenerPreguntas("00");
 });
 
-
+//obtengo las preguntas iniciales, y en caso de ya haber seleccionado alguna de ellas, cargo las preguntas relacionadas
 function ObtenerPreguntas(codigo) {
     var metodo = 'files/download';
     var datos = JSON.stringify({
@@ -31,13 +31,7 @@ function ObtenerPreguntas(codigo) {
                     if (preguntas[i].indexOf(codigo) != -1) {
                         var pregunta = preguntas[i].split("-");
                         elem.innerHTML += '<button class="btn btn-info btn-block preguntas-btn" codigo="' + pregunta[0].trim() + '"  onclick="ObtenerPreguntas(\'' + pregunta[0].trim() + '\')">' + pregunta[1].trim() + '</button>';
-                        //if (azul) {
-                        //    elem.innerHTML += '<div class="preguntasAzul" codigo="' + pregunta[0].trim() + '"  onclick="ObtenerPreguntas(\'' + pregunta[0].trim() + '\')">' + pregunta[1].trim() + '</div>';
-                        //    azul = false;
-                        //} else {
-                        //    elem.innerHTML += '<div class="preguntasGris"codigo="' + pregunta[0].trim() + '" onclick="ObtenerPreguntas(\'' + pregunta[0].trim() + '\')">' + pregunta[1].trim() + '</div>';
-                        //    azul = true;
-                        //}
+                       
                     }
                 } else {
                     if (codigo.indexOf('0') != -1) {
@@ -46,13 +40,7 @@ function ObtenerPreguntas(codigo) {
                             if (preguntas[i].trim().charAt(0) == codigo_Primer && preguntas[i].trim().charAt(1) != 0 && preguntas[i].indexOf("0") != -1) {
                                 var pregunta = preguntas[i].split("-");
                                 elem.innerHTML += '<button class="btn btn-info btn-block preguntas-btn" codigo="' + pregunta[0].trim() + '"  onclick="ObtenerPreguntas(\'' + pregunta[0].trim() + '\')">' + pregunta[1].trim() + '</button>';
-                                //if (azul) {
-                                //    elem.innerHTML += '<div class="preguntasAzul" codigo="' + pregunta[0].trim() + '"  onclick="ObtenerPreguntas(\'' + pregunta[0].trim() + '\')">' + pregunta[1].trim() + '</div>';
-                                //    azul = false;
-                                //} else {
-                                //    elem.innerHTML += '<div class="preguntasGris"codigo="' + pregunta[0].trim() + '" onclick="ObtenerPreguntas(\'' + pregunta[0].trim() + '\')">' + pregunta[1].trim() + '</div>';
-                                //    azul = true;
-                                //}
+                              
                             }
                         } else {
                             codigo_Primer = codigo.charAt(0);
@@ -60,25 +48,13 @@ function ObtenerPreguntas(codigo) {
                                 if (preguntas[i].trim().charAt(0) == codigo_Primer && preguntas[i].trim().charAt(1) != 0 && preguntas[i].indexOf("0") != -1) {
                                     var pregunta = preguntas[i].split("-");
                                     elem.innerHTML += '<button class="btn btn-info btn-block preguntas-btn" codigo="' + pregunta[0].trim() + '"  onclick="ObtenerPreguntas(\'' + pregunta[0].trim() + '\')">' + pregunta[1].trim() + '</button>';
-                                    //if (azul) {
-                                    //    elem.innerHTML += '<div class="preguntasAzul" codigo="' + pregunta[0].trim() + '"  onclick="ObtenerPreguntas(\'' + pregunta[0].trim() + '\')">' + pregunta[1].trim() + '</div>';
-                                    //    azul = false;
-                                    //} else {
-                                    //    elem.innerHTML += '<div class="preguntasGris"codigo="' + pregunta[0].trim() + '" onclick="ObtenerPreguntas(\'' + pregunta[0].trim() + '\')">' + pregunta[1].trim() + '</div>';
-                                    //    azul = true;
-                                    //}
+                                    
                                 }
                             } else {
                                 if (preguntas[i].trim().charAt(0) == codigo_Primer && preguntas[i].trim().charAt(1) != 0 && preguntas[i].trim().charAt(1) == codigo.charAt(1) && preguntas[i].indexOf("0") == -1) {
                                     var pregunta = preguntas[i].split("-");
                                     elem.innerHTML += '<button class="btn btn-info btn-block preguntas-btn" codigo="' + pregunta[0].trim() + '"  onclick="ObtenerPreguntas(\'' + pregunta[0].trim() + '\')">' + pregunta[1].trim() + '</button>';
-                                    //if (azul) {
-                                    //    elem.innerHTML += '<div class="preguntasAzul" codigo="' + pregunta[0].trim() + '"  onclick="ObtenerPreguntas(\'' + pregunta[0].trim() + '\')">' + pregunta[1].trim() + '</div>';
-                                    //    azul = false;
-                                    //} else {
-                                    //    elem.innerHTML += '<div class="preguntasGris"codigo="' + pregunta[0].trim() + '" onclick="ObtenerPreguntas(\'' + pregunta[0].trim() + '\')">' + pregunta[1].trim() + '</div>';
-                                    //    azul = true;
-                                    //}
+                                    
                                 }
                             }
                         }
@@ -106,7 +82,7 @@ function ObtenerPreguntas(codigo) {
 }
 
 
-
+//voy al articulo seleccionado
 function RedireccionarArticulo(codigo) {
 
     var access_token = 'hD6ZEfkGwbAAAAAAAAAAB64YKvNF4qCgA026Y9mqceeaE4jdtPcFAL_vCZZU4zmy';

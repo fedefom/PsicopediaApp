@@ -11,7 +11,7 @@
     var datos = JSON.stringify({
         'path': "/Secciones.txt",
     });
-
+    //obtengo las secciones
     ConsultaSecciones(metodo, datos);
 });
 

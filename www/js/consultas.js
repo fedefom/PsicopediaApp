@@ -21,7 +21,7 @@
 function cargarVista() {
     document.getElementById("load").style.display = "none";
 }
-
+//obtengo el asunto, cuerpo.
 function EnviarMail() {
     var subject = $("#asunto").val();
     var cuerpo = $("#consulta").val();

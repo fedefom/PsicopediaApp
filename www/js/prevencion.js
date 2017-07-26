@@ -9,7 +9,7 @@
     AreaPrevencion(metodo, datos);
 });
 
-
+//obtengo el contenido del area de prevencion
 function AreaPrevencion(metodo, datos) {
     var access_token = 'hD6ZEfkGwbAAAAAAAAAAB64YKvNF4qCgA026Y9mqceeaE4jdtPcFAL_vCZZU4zmy';
     var request = new XMLHttpRequest();

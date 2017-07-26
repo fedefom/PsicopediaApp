@@ -21,7 +21,7 @@
         appName: articulo
     });
 });
-
+//busco si existe el articulo
 function Buscar(articulo) {
 
     var access_token = 'hD6ZEfkGwbAAAAAAAAAAB64YKvNF4qCgA026Y9mqceeaE4jdtPcFAL_vCZZU4zmy';
@@ -62,7 +62,7 @@ function Buscar(articulo) {
 
 }
 
-
+//leo el contenido del articulo buscado, a traves de su id
 function LeoArticulo(id) {
 
     var metodo = 'files/download';
@@ -97,7 +97,7 @@ function LeoArticulo(id) {
 }
 
 
-
+//obtengo y pego las imagenes correspondiente al articulo
 function PegoImagen(cod) {
 
     var imagenesArticulo;
@@ -137,7 +137,7 @@ function PegoImagen(cod) {
 
 
 }
-
+//inserto la imagen
 function insertar(nombre, primeraVez) {
 
     var datos = JSON.stringify({
