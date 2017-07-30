@@ -32,41 +32,27 @@
             // if we are in the app (the protocol will be file://)
             if (document.URL.indexOf('http://') !== 0) {
 
-                // we store and provide the clientId ourselves in localstorage since there are no
-                // cookies in Cordova
                 fields.clientId = localStorage.getItem('ga:clientId');
-                // disable GA's cookie storage functions
+
                 fields.storage = 'none';
 
                 ga('create', fields);
 
-                // prevent tasks that would abort tracking
                 ga('set', {
-                    // don't abort if the protocol is not http(s)
+ 
                     checkProtocolTask: null,
-                    // don't expect cookies to be enabled
+
                     checkStorageTask: null
                 });
 
-                // a callback function to get the clientId and store it ourselves
                 ga(function (tracker) {
                     localStorage.setItem('ga:clientId', tracker.get('clientId'));
                 });
-                //hace el hit
-                //ga('send', {
-                //    hitType: 'screenview',
-                //    screenName: '/PaginaPrincipal.html',
-                //    appName: 'Pagina_Principal'
-                //});
             }
-            // if we are in a browser
             else {
 
                 ga('create', fields);
-
-                // send a pageview event
                 ga('send', {
-                    // this is required, there are optional properties too if you want them
                     hitType: 'pageview'
                 });
             }
@@ -124,10 +110,6 @@
     <div id="ContenidoPrincipal">
 
     </div>
-    <footer>
-        <MARQUEE style="position: relative; margin-top:230px"> Version de prueba 1.1 </MARQUEE>
-    </footer>
-
 
 </body>
 </html>

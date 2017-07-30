@@ -1,20 +1,19 @@
 ﻿#imagenPpal {
     float: right;
     margin: 10px 10px 10px 10px;
-    width: 70px !important;
-    height: 70px !important;
+    width: 120px !important;
+    height: 120px !important;
 }
 
 #imagenSec {
     float: left;
     margin: 10px 10px 10px 10px;
-    width: 70px !important;
-    height: 70px !important;
+    width: 120px !important;
+    height: 120px !important;
 }
 
 
 p {
-    text-align: justify;
     text-indent: 2em;
     margin-left: 10px;
     margin-right: 10px;
@@ -22,5 +21,4 @@ p {
 
 #TituloArticulo {
     font-family: Georgia, Serif !important;
-    text-decoration: underline;
 }

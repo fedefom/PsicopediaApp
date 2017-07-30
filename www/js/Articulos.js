@@ -14,7 +14,7 @@
     Buscar(articulo);
     PegoImagen(codigo);
 
-    //hago el hit para google analytics
+    //hago el hit para google analytics(sumo una visita al articulo)
     ga('send', {
         hitType: 'screenview',
         screenName: '/'+ articulo,
@@ -57,8 +57,6 @@ function Buscar(articulo) {
     };
 
     request.send(datos);
-
-
 
 }
 
@@ -135,9 +133,8 @@ function PegoImagen(cod) {
 
         request.send(datos);
 
-
 }
-//inserto la imagen
+//inserto la imagen del articulo elegido
 function insertar(nombre, primeraVez) {
 
     var datos = JSON.stringify({
@@ -169,6 +166,5 @@ function insertar(nombre, primeraVez) {
     };
 
     request.send(datos);
-
 
 }
